@@ -1,400 +1,1419 @@
 {
   "database": {
     "name": "ToyotaLexusCar Shop",
-    "version": "3.2.0",
-    "last_updated": "2026-07-28",
+    "version": "4.0.0",
+    "model_year": 2026,
     "market": "USA",
     "currency": "USD",
-    "price_type": "Starting MSRP"
+    "price_type": "Starting MSRP",
+    "last_verified": "2026-07-28",
+    "data_policy": "Official 2026 lineup verified against Toyota and Lexus USA Newsroom. Unverified prices/specifications are null rather than estimated.",
+    "brands": [
+      "Toyota",
+      "Lexus"
+    ]
   },
 
   "cars": [
 
     {
-      "id": "toyota-corolla-2026",
-      "brand": "Toyota",
-      "model": "Corolla",
-      "model_year": 2026,
-      "category": "Sedan",
-      "body_style": "Sedan",
-
-      "production": {
-        "start_year": 1966,
-        "end_year": null
-      },
-
-      "generation": {
-        "name": "Twelfth Generation",
-        "code": "E210",
-        "number": 12
-      },
-
-      "powertrain": {
-        "fuel_type": "Gasoline",
-        "electrification": "ICE",
-
-        "engine": {
-          "type": "2.0L Dynamic Force 4-Cylinder",
-          "displacement_l": 2.0,
-          "cylinders": 4
-        },
-
-        "horsepower_hp": 169,
-        "torque_nm": null,
-
-        "transmission": {
-          "type": "Dynamic-Shift CVT"
-        },
-
-        "drivetrain": "FWD"
-      },
-
-      "capacity": {
-        "seating": 5
-      },
-
-      "price": [
-        {
-          "trim": "LE",
-          "amount": 22725,
-          "currency": "USD",
-          "type": "Starting MSRP",
-          "destination_included": false
-        }
-      ],
-
-      "images": {
-        "hero": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toyota_Corolla_XII_facelift_001.jpg",
-
-        "gallery": [
-          "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toyota_Corolla_XII_facelift_001.jpg"
-        ],
-
-        "license": "CC0",
-        "image_source": "Wikimedia Commons",
-        "attribution": null
-      },
-
-      "description": "2026 Toyota Corolla compact sedan.",
-
-      "history": "The Corolla nameplate was introduced in 1966 and is one of Toyota's longest-running passenger-car nameplates.",
-
-      "official_sources": [
-        {
-          "name": "Toyota USA Newsroom",
-          "url": "https://pressroom.toyota.com/"
-        }
-      ]
-    },
-
-
-    {
       "id": "toyota-camry-2026",
       "brand": "Toyota",
       "model": "Camry",
-      "model_year": 2026,
+      "year": 2026,
       "category": "Sedan",
       "body_style": "Sedan",
-
-      "production": {
-        "start_year": 1982,
-        "end_year": null
-      },
-
-      "generation": {
-        "name": "Ninth Generation",
-        "code": "XV80",
-        "number": 9
-      },
-
-      "powertrain": {
-        "fuel_type": "Hybrid",
-        "electrification": "Hybrid",
-
-        "engine": {
-          "type": "2.5L 4-Cylinder Hybrid",
-          "displacement_l": 2.5,
-          "cylinders": 4
-        },
-
-        "horsepower_hp": null,
-        "torque_nm": null,
-
-        "transmission": {
-          "type": "eCVT"
-        },
-
-        "drivetrain": "FWD / AWD"
-      },
-
-      "capacity": {
-        "seating": 5
-      },
-
-      "price": [
-        {
-          "trim": "Starting MSRP",
-          "amount": null,
-          "currency": "USD",
-          "type": "Starting MSRP",
-          "destination_included": false,
-          "verification_status": "Pending official verification"
-        }
+      "powertrain_type": "Hybrid",
+      "variants": [
+        "LE",
+        "SE",
+        "Nightshade",
+        "XLE",
+        "XSE"
       ],
-
-      "images": {
-        "hero": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toyota_Camry_2.5_Hybrid_Ascent_Sport_%28IX%29_%E2%80%93_f_02012026.jpg",
-
-        "gallery": [
-          "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toyota_Camry_2.5_Hybrid_Ascent_Sport_%28IX%29_%E2%80%93_f_02012026.jpg"
-        ],
-
-        "license": "CC BY-SA 3.0 DE",
-        "image_source": "Wikimedia Commons",
-        "attribution": "M 93 / Wikimedia Commons"
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
       },
-
-      "description": "2026 Toyota Camry hybrid midsize sedan.",
-
-      "history": "The Toyota Camry is a long-running midsize passenger-car nameplate.",
-
-      "official_sources": [
-        {
-          "name": "Toyota USA Newsroom",
-          "url": "https://pressroom.toyota.com/"
-        }
-      ]
-    },
-
-
-    {
-      "id": "toyota-rav4-2026",
-      "brand": "Toyota",
-      "model": "RAV4",
-      "model_year": 2026,
-      "category": "SUV",
-      "body_style": "SUV",
-
-      "production": {
-        "start_year": 1994,
-        "end_year": null
+      "specifications": {
+        "fuel": "Hybrid",
+        "engine": "2.5L 4-Cylinder Hybrid",
+        "transmission": "eCVT",
+        "drivetrain": "FWD / AWD",
+        "seating": 5,
+        "horsepower_hp": null
       },
-
-      "generation": {
-        "name": "Sixth Generation",
-        "code": null,
-        "number": 6
-      },
-
-      "powertrain": {
-        "fuel_type": "Hybrid / Plug-in Hybrid",
-        "electrification": "Hybrid / PHEV",
-
-        "engine": {
-          "type": "2.5L 4-Cylinder Hybrid",
-          "displacement_l": 2.5,
-          "cylinders": 4
-        },
-
-        "horsepower_hp": null,
-        "torque_nm": null,
-
-        "transmission": {
-          "type": "eCVT"
-        },
-
-        "drivetrain": "FWD / AWD"
-      },
-
-      "capacity": {
-        "seating": 5
-      },
-
-      "price": [
-        {
-          "trim": "Hybrid FWD",
-          "amount": 31900,
-          "currency": "USD",
-          "type": "Starting MSRP",
-          "destination_included": false
-        }
-      ],
-
-      "images": {
-        "hero": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Moscow%2C_Toyota_RAV4_white-black%2C_May_2026_01.jpg",
-
-        "gallery": [
-          "https://commons.wikimedia.org/wiki/Special:Redirect/file/Moscow%2C_Toyota_RAV4_white-black%2C_May_2026_01.jpg"
-        ],
-
-        "license": "CC0",
-        "image_source": "Wikimedia Commons",
-        "attribution": null
-      },
-
-      "description": "2026 Toyota RAV4 compact SUV.",
-
-      "history": "The Toyota RAV4 is a compact SUV nameplate introduced in the 1990s.",
-
-      "official_sources": [
-        {
-          "name": "Toyota USA Newsroom",
-          "url": "https://pressroom.toyota.com/"
-        }
-      ]
-    },
-
-
-    {
-      "id": "toyota-tacoma-2026",
-      "brand": "Toyota",
-      "model": "Tacoma",
-      "model_year": 2026,
-      "category": "Pickup",
-      "body_style": "Pickup Truck",
-
-      "production": {
-        "start_year": 1995,
-        "end_year": null
-      },
-
-      "generation": {
-        "name": "Fourth Generation",
-        "code": "N400",
-        "number": 4
-      },
-
-      "powertrain": {
-        "fuel_type": "Gasoline / Hybrid",
-        "electrification": "ICE / Hybrid",
-
-        "engine": {
-          "type": "2.4L Turbo / i-FORCE MAX",
-          "displacement_l": 2.4,
-          "cylinders": 4
-        },
-
-        "horsepower_hp": null,
-        "torque_nm": null,
-
-        "transmission": {
-          "type": "8-Speed Automatic"
-        },
-
-        "drivetrain": "RWD / 4WD"
-      },
-
-      "capacity": {
-        "seating": 5
-      },
-
-      "price": [
-        {
-          "trim": "Starting MSRP",
-          "amount": null,
-          "currency": "USD",
-          "type": "Starting MSRP",
-          "destination_included": false,
-          "verification_status": "Pending official verification"
-        }
-      ],
-
       "images": {
         "hero": "",
         "gallery": [],
-        "license": null,
-        "image_source": "Pending license verification",
-        "attribution": null
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
       },
-
-      "description": "2026 Toyota Tacoma midsize pickup truck.",
-
-      "history": "Toyota Tacoma is a long-running midsize pickup truck nameplate.",
-
-      "official_sources": [
-        {
-          "name": "Toyota USA Newsroom",
-          "url": "https://pressroom.toyota.com/"
-        }
-      ]
+      "official_source": "https://pressroom.toyota.com/whats-new-for-2026/"
     },
 
+    {
+      "id": "toyota-corolla-2026",
+      "brand": "Toyota",
+      "model": "Corolla",
+      "year": 2026,
+      "category": "Sedan",
+      "body_style": "Sedan",
+      "powertrain_type": "Gasoline / Hybrid",
+      "variants": [
+        "LE",
+        "SE",
+        "FX",
+        "Nightshade",
+        "Hybrid LE"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Gasoline / Hybrid",
+        "engine": "2.0L 4-Cylinder / Hybrid",
+        "transmission": "CVT / eCVT",
+        "drivetrain": "FWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/whats-new-for-2026/"
+    },
+
+    {
+      "id": "toyota-corolla-hatchback-2026",
+      "brand": "Toyota",
+      "model": "Corolla Hatchback",
+      "year": 2026,
+      "category": "Hatchback",
+      "body_style": "Hatchback",
+      "powertrain_type": "Gasoline",
+      "variants": [
+        "SE",
+        "FX"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Gasoline",
+        "engine": "2.0L 4-Cylinder",
+        "transmission": "CVT / 6-Speed Manual",
+        "drivetrain": "FWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/2026-toyota-corolla-hatchback-elevates-safety-and-style-with-new-standard-features-and-new-fx-edition/"
+    },
+
+    {
+      "id": "toyota-crown-2026",
+      "brand": "Toyota",
+      "model": "Crown",
+      "year": 2026,
+      "category": "Sedan",
+      "body_style": "Crossover Sedan",
+      "powertrain_type": "Hybrid",
+      "variants": [
+        "XLE",
+        "Limited",
+        "Nightshade",
+        "Platinum"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Hybrid",
+        "engine": "2.5L Hybrid / Hybrid MAX",
+        "transmission": "eCVT",
+        "drivetrain": "AWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/whats-new-for-2026/"
+    },
+
+    {
+      "id": "toyota-mirai-2026",
+      "brand": "Toyota",
+      "model": "Mirai",
+      "year": 2026,
+      "category": "Fuel Cell",
+      "body_style": "Sedan",
+      "powertrain_type": "Hydrogen Fuel Cell",
+      "variants": [
+        "XLE",
+        "Limited"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Hydrogen",
+        "engine": "Fuel Cell Electric",
+        "transmission": "Single-Speed",
+        "drivetrain": "RWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/whats-new-for-2026/"
+    },
+
+    {
+      "id": "toyota-prius-2026",
+      "brand": "Toyota",
+      "model": "Prius",
+      "year": 2026,
+      "category": "Hybrid",
+      "body_style": "Hatchback",
+      "powertrain_type": "Hybrid",
+      "variants": [
+        "LE",
+        "XLE",
+        "Limited"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Hybrid",
+        "engine": "2.0L Hybrid",
+        "transmission": "eCVT",
+        "drivetrain": "FWD / AWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/whats-new-for-2026/"
+    },
+
+    {
+      "id": "toyota-prius-plug-in-hybrid-2026",
+      "brand": "Toyota",
+      "model": "Prius Plug-in Hybrid",
+      "year": 2026,
+      "category": "Plug-in Hybrid",
+      "body_style": "Hatchback",
+      "powertrain_type": "PHEV",
+      "variants": [
+        "SE",
+        "XSE",
+        "XSE Premium"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Plug-in Hybrid",
+        "engine": "2.0L Hybrid",
+        "transmission": "eCVT",
+        "drivetrain": "FWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/whats-new-for-2026/"
+    },
+
+    {
+      "id": "toyota-sienna-2026",
+      "brand": "Toyota",
+      "model": "Sienna",
+      "year": 2026,
+      "category": "Minivan",
+      "body_style": "Minivan",
+      "powertrain_type": "Hybrid",
+      "variants": [
+        "LE",
+        "XLE",
+        "XSE",
+        "Limited",
+        "Platinum"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Hybrid",
+        "engine": "2.5L 4-Cylinder Hybrid",
+        "transmission": "eCVT",
+        "drivetrain": "FWD / AWD",
+        "seating": 7,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/whats-new-for-2026/"
+    },
 
     {
       "id": "toyota-4runner-2026",
       "brand": "Toyota",
       "model": "4Runner",
-      "model_year": 2026,
+      "year": 2026,
       "category": "SUV",
       "body_style": "SUV",
-
-      "production": {
-        "start_year": 1984,
-        "end_year": null
-      },
-
-      "generation": {
-        "name": "Sixth Generation",
-        "code": null,
-        "number": 6
-      },
-
-      "powertrain": {
-        "fuel_type": "Gasoline / Hybrid",
-        "electrification": "ICE / Hybrid",
-
-        "engine": {
-          "type": "2.4L Turbo / i-FORCE MAX",
-          "displacement_l": 2.4,
-          "cylinders": 4
-        },
-
-        "horsepower_hp": 278,
-        "torque_nm": null,
-
-        "transmission": {
-          "type": "8-Speed Automatic"
-        },
-
-        "drivetrain": "2WD / Part-Time 4WD / Full-Time 4WD"
-      },
-
-      "capacity": {
-        "seating": null
-      },
-
-      "price": [
-        {
-          "trim": "Starting MSRP",
-          "amount": 41570,
-          "currency": "USD",
-          "type": "Starting MSRP",
-          "destination_included": false
-        }
+      "powertrain_type": "Gasoline / Hybrid",
+      "variants": [
+        "SR5",
+        "TRD Sport",
+        "TRD Sport Premium",
+        "TRD Off-Road",
+        "TRD Off-Road Premium",
+        "Limited",
+        "Platinum",
+        "Trailhunter",
+        "TRD Pro"
       ],
-
-      "images": {
-        "hero": "https://commons.wikimedia.org/wiki/Special:Redirect/file/25_Toyota_4Runner_TRD_Sport_LA.jpg",
-
-        "gallery": [
-          "https://commons.wikimedia.org/wiki/Special:Redirect/file/25_Toyota_4Runner_TRD_Sport_LA.jpg"
-        ],
-
-        "license": "CC0",
-        "image_source": "Wikimedia Commons",
-        "attribution": null
+      "price": {
+        "starting_msrp": 41570,
+        "currency": "USD",
+        "status": "Official MSRP before DPH"
       },
+      "specifications": {
+        "fuel": "Gasoline / Hybrid",
+        "engine": "2.4L Turbo / i-FORCE MAX",
+        "transmission": "8-Speed Automatic",
+        "drivetrain": "2WD / 4WD",
+        "seating": 5,
+        "horsepower_hp": 278
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/the-2026-toyota-4runner-engineered-for-exploration/"
+    },
 
-      "description": "2026 Toyota 4Runner SUV.",
+    {
+      "id": "toyota-bz-2026",
+      "brand": "Toyota",
+      "model": "bZ",
+      "year": 2026,
+      "category": "Electric SUV",
+      "body_style": "SUV",
+      "powertrain_type": "BEV",
+      "variants": [
+        "XLE",
+        "Limited"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Electric",
+        "engine": "Battery Electric",
+        "transmission": "Single-Speed",
+        "drivetrain": "FWD / AWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/whats-new-for-2026/"
+    },
 
-      "history": "Toyota 4Runner is a long-running body-on-frame SUV nameplate.",
+    {
+      "id": "toyota-bz-woodland-2026",
+      "brand": "Toyota",
+      "model": "bZ Woodland",
+      "year": 2026,
+      "category": "Electric SUV",
+      "body_style": "SUV",
+      "powertrain_type": "BEV",
+      "variants": [
+        "Woodland"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Electric",
+        "engine": "Battery Electric",
+        "transmission": "Single-Speed",
+        "drivetrain": "AWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/whats-new-for-2026/"
+    },
 
-      "official_sources": [
-        {
-          "name": "Toyota USA Newsroom",
-          "url": "https://pressroom.toyota.com/"
-        }
-      ]
+    {
+      "id": "toyota-c-hr-2026",
+      "brand": "Toyota",
+      "model": "C-HR",
+      "year": 2026,
+      "category": "Electric SUV",
+      "body_style": "SUV",
+      "powertrain_type": "BEV",
+      "variants": [
+        "XLE",
+        "Limited"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Electric",
+        "engine": "Dual Motor BEV",
+        "transmission": "Single-Speed",
+        "drivetrain": "AWD",
+        "seating": 5,
+        "horsepower_hp": 338
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/2026-toyota-c-hr-puts-sporty-stylish-spin-on-the-compact-electric-suv/"
+    },
+
+    {
+      "id": "toyota-corolla-cross-2026",
+      "brand": "Toyota",
+      "model": "Corolla Cross",
+      "year": 2026,
+      "category": "SUV",
+      "body_style": "Compact SUV",
+      "powertrain_type": "Gasoline / Hybrid",
+      "variants": [
+        "L",
+        "LE",
+        "XLE",
+        "Hybrid S",
+        "Hybrid SE",
+        "Hybrid XSE"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Gasoline / Hybrid",
+        "engine": "2.0L 4-Cylinder / Hybrid",
+        "transmission": "CVT / eCVT",
+        "drivetrain": "FWD / AWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/whats-new-for-2026/"
+    },
+
+    {
+      "id": "toyota-crown-signia-2026",
+      "brand": "Toyota",
+      "model": "Crown Signia",
+      "year": 2026,
+      "category": "SUV",
+      "body_style": "Crossover SUV",
+      "powertrain_type": "Hybrid",
+      "variants": [
+        "XLE",
+        "Limited"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Hybrid",
+        "engine": "2.5L Hybrid",
+        "transmission": "eCVT",
+        "drivetrain": "AWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/whats-new-for-2026/"
+    },
+
+    {
+      "id": "toyota-highlander-2026",
+      "brand": "Toyota",
+      "model": "Highlander",
+      "year": 2026,
+      "category": "SUV",
+      "body_style": "3-Row SUV",
+      "powertrain_type": "Gasoline",
+      "variants": [
+        "XLE",
+        "Limited",
+        "Platinum"
+      ],
+      "price": {
+        "starting_msrp": 45270,
+        "currency": "USD",
+        "status": "Official MSRP before DPH"
+      },
+      "specifications": {
+        "fuel": "Gasoline",
+        "engine": "2.4L Turbo 4-Cylinder",
+        "transmission": "8-Speed Automatic",
+        "drivetrain": "AWD",
+        "seating": 7,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/2026-toyota-highlander-gets-standard-all-wheel-drive-across-the-lineup/"
+    },
+
+    {
+      "id": "toyota-highlander-hybrid-2026",
+      "brand": "Toyota",
+      "model": "Highlander Hybrid",
+      "year": 2026,
+      "category": "Hybrid SUV",
+      "body_style": "3-Row SUV",
+      "powertrain_type": "Hybrid",
+      "variants": [
+        "XLE",
+        "Limited",
+        "Platinum"
+      ],
+      "price": {
+        "starting_msrp": 47020,
+        "currency": "USD",
+        "status": "Official MSRP before DPH"
+      },
+      "specifications": {
+        "fuel": "Hybrid",
+        "engine": "2.5L 4-Cylinder Hybrid",
+        "transmission": "eCVT",
+        "drivetrain": "AWD",
+        "seating": 7,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/2026-toyota-highlander-gets-standard-all-wheel-drive-across-the-lineup/"
+    },
+
+    {
+      "id": "toyota-grand-highlander-2026",
+      "brand": "Toyota",
+      "model": "Grand Highlander",
+      "year": 2026,
+      "category": "SUV",
+      "body_style": "3-Row SUV",
+      "powertrain_type": "Gasoline / Hybrid",
+      "variants": [
+        "XLE",
+        "Limited",
+        "Platinum"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Gasoline / Hybrid",
+        "engine": "2.4L Turbo / Hybrid",
+        "transmission": "8-Speed Automatic / eCVT",
+        "drivetrain": "FWD / AWD",
+        "seating": 7,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/2026-toyota-grand-highlander/"
+    },
+
+    {
+      "id": "toyota-land-cruiser-2026",
+      "brand": "Toyota",
+      "model": "Land Cruiser",
+      "year": 2026,
+      "category": "SUV",
+      "body_style": "Off-Road SUV",
+      "powertrain_type": "Hybrid",
+      "variants": [
+        "1958",
+        "Land Cruiser",
+        "Trailhunter"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Hybrid",
+        "engine": "2.4L Turbo i-FORCE MAX",
+        "transmission": "8-Speed Automatic",
+        "drivetrain": "4WD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/2026-land-cruiser-built-to-explore-designed-to-impress/"
+    },
+
+    {
+      "id": "toyota-rav4-2026",
+      "brand": "Toyota",
+      "model": "RAV4",
+      "year": 2026,
+      "category": "SUV",
+      "body_style": "Compact SUV",
+      "powertrain_type": "Hybrid / Plug-in Hybrid",
+      "variants": [
+        "LE",
+        "XLE",
+        "SE",
+        "XSE",
+        "Limited",
+        "Woodland",
+        "GR SPORT",
+        "SE Performance",
+        "XSE Performance"
+      ],
+      "price": {
+        "starting_msrp": 31900,
+        "currency": "USD",
+        "status": "Official starting MSRP"
+      },
+      "specifications": {
+        "fuel": "Hybrid / Plug-in Hybrid",
+        "engine": "2.5L 4-Cylinder Hybrid",
+        "transmission": "eCVT",
+        "drivetrain": "FWD / AWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/2026-rav4-arrives-this-winter/"
+    },
+
+    {
+      "id": "toyota-sequoia-2026",
+      "brand": "Toyota",
+      "model": "Sequoia",
+      "year": 2026,
+      "category": "SUV",
+      "body_style": "Full-Size 3-Row SUV",
+      "powertrain_type": "Hybrid",
+      "variants": [
+        "SR5",
+        "Limited",
+        "Platinum",
+        "Capstone",
+        "TRD Pro"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Hybrid",
+        "engine": "3.4L Twin-Turbo i-FORCE MAX",
+        "transmission": "10-Speed Automatic",
+        "drivetrain": "2WD / 4WD",
+        "seating": 7,
+        "horsepower_hp": 437
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/whats-new-for-2026/"
+    },
+
+    {
+      "id": "toyota-gr86-2026",
+      "brand": "Toyota",
+      "model": "GR86",
+      "year": 2026,
+      "category": "Sports Car",
+      "body_style": "Coupe",
+      "powertrain_type": "Gasoline",
+      "variants": [
+        "GR86",
+        "GR86 Premium",
+        "GR86 Trueno"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Gasoline",
+        "engine": "2.4L Boxer 4-Cylinder",
+        "transmission": "6-Speed Manual / Automatic",
+        "drivetrain": "RWD",
+        "seating": 4,
+        "horsepower_hp": 228
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/whats-new-for-2026/"
+    },
+
+    {
+      "id": "toyota-gr-corolla-2026",
+      "brand": "Toyota",
+      "model": "GR Corolla",
+      "year": 2026,
+      "category": "Performance Hatchback",
+      "body_style": "Hatchback",
+      "powertrain_type": "Gasoline",
+      "variants": [
+        "Core",
+        "Premium",
+        "Premium Plus",
+        "GRMN"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Gasoline",
+        "engine": "1.6L Turbo 3-Cylinder",
+        "transmission": "6-Speed Manual / Automatic",
+        "drivetrain": "AWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/peak-performance-toyota-introduces-the2026-grmn-corolla/"
+    },
+
+    {
+      "id": "toyota-gr-supra-2026",
+      "brand": "Toyota",
+      "model": "GR Supra",
+      "year": 2026,
+      "category": "Sports Car",
+      "body_style": "Coupe",
+      "powertrain_type": "Gasoline",
+      "variants": [
+        "3.0",
+        "3.0 Premium"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Gasoline",
+        "engine": "3.0L Turbo 6-Cylinder",
+        "transmission": "6-Speed Manual / 8-Speed Automatic",
+        "drivetrain": "RWD",
+        "seating": 2,
+        "horsepower_hp": 382
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/whats-new-for-2026/"
+    },
+
+    {
+      "id": "toyota-tacoma-2026",
+      "brand": "Toyota",
+      "model": "Tacoma",
+      "year": 2026,
+      "category": "Pickup",
+      "body_style": "Midsize Pickup",
+      "powertrain_type": "Gasoline / Hybrid",
+      "variants": [
+        "SR",
+        "SR5",
+        "TRD PreRunner",
+        "TRD Sport",
+        "TRD Off-Road",
+        "Limited",
+        "Trailhunter",
+        "TRD Pro"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Gasoline / Hybrid",
+        "engine": "2.4L Turbo / i-FORCE MAX",
+        "transmission": "8-Speed Automatic",
+        "drivetrain": "RWD / 4WD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/whats-new-for-2026/"
+    },
+
+    {
+      "id": "toyota-tundra-2026",
+      "brand": "Toyota",
+      "model": "Tundra",
+      "year": 2026,
+      "category": "Pickup",
+      "body_style": "Full-Size Pickup",
+      "powertrain_type": "Gasoline / Hybrid",
+      "variants": [
+        "SR",
+        "SR5",
+        "Limited",
+        "Platinum",
+        "1794 Edition",
+        "TRD Pro",
+        "Capstone",
+        "TRD Rally"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Gasoline / Hybrid",
+        "engine": "3.4L Twin-Turbo / i-FORCE MAX",
+        "transmission": "10-Speed Automatic",
+        "drivetrain": "RWD / 4WD",
+        "seating": 5,
+        "horsepower_hp": 437
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Toyota USA Newsroom",
+        "license": "Official Toyota media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.toyota.com/2026-toyota-tundra-a-bold-new-chapter-in-full-size-pickup-excellence/"
+    },
+
+
+    {
+      "id": "lexus-es-2026",
+      "brand": "Lexus",
+      "model": "ES",
+      "year": 2026,
+      "category": "Luxury Sedan",
+      "body_style": "Sedan",
+      "powertrain_type": "Hybrid",
+      "variants": [
+        "ES 350h"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Hybrid",
+        "engine": "2.5L Hybrid",
+        "transmission": "eCVT",
+        "drivetrain": "FWD / AWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Lexus USA Newsroom",
+        "license": "Official Lexus media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.lexus.com/2026-lexus-es-launches-with-battery-electric-models-new-hybrid-coming-soon/"
+    },
+
+    {
+      "id": "lexus-es-electric-2026",
+      "brand": "Lexus",
+      "model": "ES Electric",
+      "year": 2026,
+      "category": "Luxury Electric Sedan",
+      "body_style": "Sedan",
+      "powertrain_type": "BEV",
+      "variants": [
+        "ES 350e",
+        "ES 500e"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Electric",
+        "engine": "Battery Electric",
+        "transmission": "Single-Speed",
+        "drivetrain": "FWD / AWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Lexus USA Newsroom",
+        "license": "Official Lexus media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.lexus.com/2026-lexus-es-launches-with-battery-electric-models-new-hybrid-coming-soon/"
+    },
+
+    {
+      "id": "lexus-is-2026",
+      "brand": "Lexus",
+      "model": "IS",
+      "year": 2026,
+      "category": "Luxury Sports Sedan",
+      "body_style": "Sedan",
+      "powertrain_type": "Gasoline",
+      "variants": [
+        "IS 350 F SPORT Design",
+        "IS 350 F SPORT"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Gasoline",
+        "engine": "3.5L V6",
+        "transmission": "6-Speed / 8-Speed Automatic",
+        "drivetrain": "RWD / AWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Lexus USA Newsroom",
+        "license": "Official Lexus media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.lexus.com/2026-lexus-is-perfecting-the-sport-sedan/"
+    },
+
+    {
+      "id": "lexus-lc-500-2026",
+      "brand": "Lexus",
+      "model": "LC 500",
+      "year": 2026,
+      "category": "Luxury Sports Car",
+      "body_style": "Coupe",
+      "powertrain_type": "Gasoline",
+      "variants": [
+        "LC 500",
+        "Inspiration Series"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Gasoline",
+        "engine": "5.0L V8",
+        "transmission": "10-Speed Automatic",
+        "drivetrain": "RWD",
+        "seating": 4,
+        "horsepower_hp": 471
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Lexus USA Newsroom",
+        "license": "Official Lexus media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.lexus.com/tangible-elegance-the-2026-lexus-lc-500/"
+    },
+
+    {
+      "id": "lexus-lc-500-convertible-2026",
+      "brand": "Lexus",
+      "model": "LC 500 Convertible",
+      "year": 2026,
+      "category": "Luxury Sports Car",
+      "body_style": "Convertible",
+      "powertrain_type": "Gasoline",
+      "variants": [
+        "LC 500 Convertible"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Gasoline",
+        "engine": "5.0L V8",
+        "transmission": "10-Speed Automatic",
+        "drivetrain": "RWD",
+        "seating": 4,
+        "horsepower_hp": 471
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Lexus USA Newsroom",
+        "license": "Official Lexus media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.lexus.com/whats-new-for-2026/"
+    },
+
+    {
+      "id": "lexus-ls-2026",
+      "brand": "Lexus",
+      "model": "LS",
+      "year": 2026,
+      "category": "Luxury Sedan",
+      "body_style": "Sedan",
+      "powertrain_type": "Gasoline",
+      "variants": [
+        "LS 500 AWD Heritage Edition"
+      ],
+      "price": {
+        "starting_msrp": 99380,
+        "currency": "USD",
+        "status": "Official MSRP including DPH"
+      },
+      "specifications": {
+        "fuel": "Gasoline",
+        "engine": "3.4L Twin-Turbo V6",
+        "transmission": "10-Speed Automatic",
+        "drivetrain": "AWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Lexus USA Newsroom",
+        "license": "Official Lexus media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.lexus.com/2026-lexus-ls-a-homage-to-the-original/"
+    },
+
+    {
+      "id": "lexus-gx-2026",
+      "brand": "Lexus",
+      "model": "GX",
+      "year": 2026,
+      "category": "Luxury SUV",
+      "body_style": "SUV",
+      "powertrain_type": "Gasoline",
+      "variants": [
+        "Premium",
+        "Premium+",
+        "Overtrail",
+        "Luxury",
+        "Luxury+"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Gasoline",
+        "engine": "3.4L Twin-Turbo V6",
+        "transmission": "10-Speed Automatic",
+        "drivetrain": "4WD",
+        "seating": 7,
+        "horsepower_hp": 349
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Lexus USA Newsroom",
+        "license": "Official Lexus media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.lexus.com/whats-new-for-2026/"
+    },
+
+    {
+      "id": "lexus-lx-2026",
+      "brand": "Lexus",
+      "model": "LX",
+      "year": 2026,
+      "category": "Luxury SUV",
+      "body_style": "Full-Size SUV",
+      "powertrain_type": "Gasoline / Hybrid",
+      "variants": [
+        "LX 600",
+        "LX 700h",
+        "F SPORT Handling",
+        "Ultra Luxury"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Gasoline / Hybrid",
+        "engine": "3.4L Twin-Turbo V6 / Hybrid",
+        "transmission": "10-Speed Automatic",
+        "drivetrain": "4WD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Lexus USA Newsroom",
+        "license": "Official Lexus media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.lexus.com/lexus-flagship-suv-returns-for-2026-with-an-f-sport-appearance-package/"
+    },
+
+    {
+      "id": "lexus-nx-2026",
+      "brand": "Lexus",
+      "model": "NX",
+      "year": 2026,
+      "category": "Luxury SUV",
+      "body_style": "Compact SUV",
+      "powertrain_type": "Gasoline / Hybrid / Plug-in Hybrid",
+      "variants": [
+        "NX 250",
+        "NX 350",
+        "NX 350h",
+        "NX 450h+",
+        "F SPORT Handling"
+      ],
+      "price": {
+        "starting_msrp": 45570,
+        "currency": "USD",
+        "status": "Official starting MSRP including DPH"
+      },
+      "specifications": {
+        "fuel": "Gasoline / Hybrid / Plug-in Hybrid",
+        "engine": "2.4L Turbo / 2.5L Hybrid",
+        "transmission": "8-Speed Automatic / eCVT",
+        "drivetrain": "FWD / AWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Lexus USA Newsroom",
+        "license": "Official Lexus media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.lexus.com/2026-lexus-nx-adds-grades-and-drivetrain/"
+    },
+
+    {
+      "id": "lexus-rx-2026",
+      "brand": "Lexus",
+      "model": "RX",
+      "year": 2026,
+      "category": "Luxury SUV",
+      "body_style": "Midsize SUV",
+      "powertrain_type": "Gasoline / Hybrid / Plug-in Hybrid",
+      "variants": [
+        "RX 350",
+        "RX 350h",
+        "RX 450h+",
+        "RX 500h",
+        "F SPORT Handling",
+        "F SPORT Performance",
+        "F SPORT Design"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Gasoline / Hybrid / Plug-in Hybrid",
+        "engine": "2.4L Turbo / 2.5L Hybrid",
+        "transmission": "Automatic / eCVT",
+        "drivetrain": "FWD / AWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Lexus USA Newsroom",
+        "license": "Official Lexus media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.lexus.com/2026-lexus-rx-extending-the-range/"
+    },
+
+    {
+      "id": "lexus-rz-2026",
+      "brand": "Lexus",
+      "model": "RZ",
+      "year": 2026,
+      "category": "Luxury Electric SUV",
+      "body_style": "SUV",
+      "powertrain_type": "BEV",
+      "variants": [
+        "RZ 350e",
+        "RZ 450e",
+        "RZ 550e F SPORT"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Electric",
+        "engine": "Battery Electric",
+        "transmission": "Single-Speed",
+        "drivetrain": "FWD / AWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Lexus USA Newsroom",
+        "license": "Official Lexus media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.lexus.com/vehicle/2026-lexus-rz/"
+    },
+
+    {
+      "id": "lexus-tx-2026",
+      "brand": "Lexus",
+      "model": "TX",
+      "year": 2026,
+      "category": "Luxury SUV",
+      "body_style": "3-Row SUV",
+      "powertrain_type": "Gasoline / Hybrid / Plug-in Hybrid",
+      "variants": [
+        "TX 350",
+        "TX 500h",
+        "TX 550h+",
+        "Standard",
+        "Premium",
+        "Luxury",
+        "F SPORT Handling",
+        "F SPORT Performance Premium",
+        "F SPORT Performance Luxury"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Gasoline / Hybrid / Plug-in Hybrid",
+        "engine": "2.4L Turbo / Hybrid",
+        "transmission": "Automatic / eCVT",
+        "drivetrain": "FWD / AWD",
+        "seating": 6,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Lexus USA Newsroom",
+        "license": "Official Lexus media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.lexus.com/style-utility-and-comfort-the-2026-lexus-tx/"
+    },
+
+    {
+      "id": "lexus-ux-hybrid-2026",
+      "brand": "Lexus",
+      "model": "UX Hybrid",
+      "year": 2026,
+      "category": "Luxury Hybrid SUV",
+      "body_style": "Compact SUV",
+      "powertrain_type": "Hybrid",
+      "variants": [
+        "UX 350h"
+      ],
+      "price": {
+        "starting_msrp": null,
+        "currency": "USD",
+        "status": "Verify current official pricing"
+      },
+      "specifications": {
+        "fuel": "Hybrid",
+        "engine": "2.0L Hybrid",
+        "transmission": "eCVT",
+        "drivetrain": "AWD",
+        "seating": 5,
+        "horsepower_hp": null
+      },
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "source": "Lexus USA Newsroom",
+        "license": "Official Lexus media assets are editorial-use restricted",
+        "commercial_use": false
+      },
+      "official_source": "https://pressroom.lexus.com/whats-new-for-2026/"
     }
 
   ]
