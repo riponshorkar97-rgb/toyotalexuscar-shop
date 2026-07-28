@@ -1,271 +1,74 @@
 {
   "database": {
     "name": "ToyotaLexusCar Shop",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "last_updated": "2026-07-28",
-    "default_currency": "USD",
-    "default_market": "USA"
+    "market": "USA",
+    "currency": "USD"
   },
 
   "cars": [
 
     {
-      "id": "toyota-model-aa-1936",
-      "brand": "Toyota",
-      "model": "Model AA",
-      "model_year": 1936,
-      "production": {
-        "start_year": 1936,
-        "end_year": 1942
-      },
-      "generation": {
-        "name": "Model AA",
-        "code": "AA",
-        "number": 1
-      },
-      "category": "Sedan",
-      "body_style": "Sedan",
-      "powertrain": {
-        "fuel_type": "Gasoline",
-        "electrification": "ICE",
-        "engine": {
-          "type": "Inline-6",
-          "displacement_l": 3.389,
-          "cylinders": 6,
-          "aspiration": "Naturally Aspirated"
-        },
-        "horsepower_hp": 65,
-        "torque_nm": null,
-        "transmission": {
-          "type": null,
-          "gears": null
-        },
-        "drivetrain": null
-      },
-      "performance": {
-        "zero_to_sixty_mph_seconds": null,
-        "top_speed_mph": null
-      },
-      "dimensions": {
-        "length_mm": 4785,
-        "width_mm": 1730,
-        "height_mm": 1736,
-        "wheelbase_mm": 2850,
-        "curb_weight_kg": 1500
-      },
-      "capacity": {
-        "seating": null,
-        "cargo_liters": null,
-        "fuel_tank_liters": null
-      },
-      "price": [
-        {
-          "market": "Japan",
-          "model_year": 1936,
-          "currency": "JPY",
-          "price_type": "Original Price",
-          "amount": 3350,
-          "source_name": "Toyota Global",
-          "source_url": "https://www.toyota-global.com/",
-          "verified_date": "2026-07-28"
-        }
-      ],
-      "images": {
-        "hero": "",
-        "gallery": [],
-        "image_source": "Toyota Official Archive"
-      },
-      "colors": [],
-      "features": [],
-      "safety": [],
-      "description": "Toyota Model AA passenger car.",
-      "history": "An important early Toyota passenger car.",
-      "official_sources": [
-        {
-          "name": "Toyota Global",
-          "url": "https://www.toyota-global.com/"
-        }
-      ]
-    },
-
-    {
-      "id": "toyota-corolla-1966",
-      "brand": "Toyota",
-      "model": "Corolla",
-      "model_year": 1966,
-      "production": {
-        "start_year": 1966,
-        "end_year": null
-      },
-      "generation": {
-        "name": "First Generation",
-        "code": "E10",
-        "number": 1
-      },
-      "category": "Compact",
-      "body_style": "Sedan",
-      "powertrain": {
-        "fuel_type": "Gasoline",
-        "electrification": "ICE",
-        "engine": {
-          "type": "Inline-4",
-          "displacement_l": 1.077,
-          "cylinders": 4,
-          "aspiration": "Naturally Aspirated"
-        },
-        "horsepower_hp": null,
-        "torque_nm": null,
-        "transmission": {
-          "type": null,
-          "gears": null
-        },
-        "drivetrain": null
-      },
-      "performance": {
-        "zero_to_sixty_mph_seconds": null,
-        "top_speed_mph": null
-      },
-      "dimensions": {},
-      "capacity": {
-        "seating": 5
-      },
-      "price": [],
-      "images": {
-        "hero": "",
-        "gallery": [],
-        "image_source": "Toyota Official Archive"
-      },
-      "colors": [],
-      "features": [],
-      "safety": [],
-      "description": "First-generation Toyota Corolla.",
-      "history": "The Corolla was introduced in 1966.",
-      "official_sources": [
-        {
-          "name": "Toyota Global",
-          "url": "https://www.toyota-global.com/"
-        }
-      ]
-    },
-
-    {
-      "id": "lexus-ls400-1989",
-      "brand": "Lexus",
-      "model": "LS 400",
-      "model_year": 1989,
-      "production": {
-        "start_year": 1989,
-        "end_year": null
-      },
-      "generation": {
-        "name": "First Generation",
-        "code": "XF10",
-        "number": 1
-      },
-      "category": "Luxury Sedan",
-      "body_style": "Sedan",
-      "powertrain": {
-        "fuel_type": "Gasoline",
-        "electrification": "ICE",
-        "engine": {
-          "type": "V8",
-          "displacement_l": 4.0,
-          "cylinders": 8,
-          "aspiration": "Naturally Aspirated"
-        },
-        "horsepower_hp": null,
-        "torque_nm": null,
-        "transmission": {
-          "type": null,
-          "gears": null
-        },
-        "drivetrain": "RWD"
-      },
-      "performance": {},
-      "dimensions": {},
-      "capacity": {},
-      "price": [],
-      "images": {
-        "hero": "",
-        "gallery": [],
-        "image_source": "Lexus Official Archive"
-      },
-      "colors": [],
-      "features": [],
-      "safety": [],
-      "description": "Original Lexus LS 400.",
-      "history": "One of the original Lexus models launched in 1989.",
-      "official_sources": [
-        {
-          "name": "Lexus USA Newsroom",
-          "url": "https://pressroom.lexus.com/"
-        }
-      ]
-    },
-
-
-    {
       "id": "toyota-corolla-2026",
+
       "brand": "Toyota",
       "model": "Corolla",
       "model_year": 2026,
+
+      "category": "Sedan",
+      "body_style": "Sedan",
+
       "production": {
         "start_year": 1966,
         "end_year": null
       },
+
       "generation": {
         "name": "Current Generation",
         "code": null,
         "number": null
       },
-      "category": "Compact",
-      "body_style": "Sedan",
-      "market": ["USA"],
+
       "powertrain": {
         "fuel_type": "Gasoline",
         "electrification": "ICE",
+
         "engine": {
-          "type": "Inline-4",
-          "displacement_l": null,
-          "cylinders": 4,
-          "aspiration": null
+          "type": "2.0L Dynamic Force 4-Cylinder",
+          "displacement_l": 2.0,
+          "cylinders": 4
         },
-        "horsepower_hp": null,
+
+        "horsepower_hp": 169,
         "torque_nm": null,
+
         "transmission": {
-          "type": "CVT",
-          "gears": null
+          "type": "CVT"
         },
+
         "drivetrain": "FWD"
       },
-      "performance": {},
-      "dimensions": {},
-      "capacity": {},
-      "price": [
-        {
-          "market": "USA",
-          "model_year": 2026,
-          "currency": "USD",
-          "price_type": "Starting MSRP",
-          "amount": 23125,
-          "source_name": "Toyota USA",
-          "source_url": "https://pressroom.toyota.com/vehicle/2026-toyota-corolla/",
-          "verified_date": "2026-07-28"
-        }
-      ],
+
+      "capacity": {
+        "seating": 5
+      },
+
+      "price": [],
+
       "images": {
         "hero": "",
         "gallery": [],
-        "image_source": "Toyota Official"
+        "image_source": "Licensed image required"
       },
-      "colors": [],
-      "features": [],
-      "safety": [],
-      "description": "2026 Toyota Corolla.",
-      "history": "Corolla is one of Toyota's longest-running nameplates.",
+
+      "description": "2026 Toyota Corolla compact sedan.",
+
+      "history": "The Corolla nameplate was introduced in 1966 and remains one of Toyota's longest-running passenger-car nameplates.",
+
       "official_sources": [
         {
-          "name": "Toyota USA",
+          "name": "Toyota USA Newsroom",
           "url": "https://pressroom.toyota.com/vehicle/2026-toyota-corolla/"
         }
       ]
@@ -274,67 +77,65 @@
 
     {
       "id": "toyota-camry-2026",
+
       "brand": "Toyota",
       "model": "Camry",
       "model_year": 2026,
+
+      "category": "Sedan",
+      "body_style": "Sedan",
+
       "production": {
         "start_year": 1982,
         "end_year": null
       },
+
       "generation": {
         "name": "Current Generation",
         "code": null,
         "number": null
       },
-      "category": "Midsize Sedan",
-      "body_style": "Sedan",
-      "market": ["USA"],
+
       "powertrain": {
-        "fuel_type": "Gasoline / Hybrid",
+        "fuel_type": "Hybrid",
         "electrification": "Hybrid",
+
         "engine": {
           "type": "4-Cylinder Hybrid",
           "displacement_l": null,
-          "cylinders": 4,
-          "aspiration": null
+          "cylinders": 4
         },
+
         "horsepower_hp": null,
         "torque_nm": null,
+
         "transmission": {
-          "type": "eCVT",
-          "gears": null
+          "type": "eCVT"
         },
+
         "drivetrain": "FWD / AWD"
       },
-      "performance": {},
-      "dimensions": {},
-      "capacity": {},
-      "price": [
-        {
-          "market": "USA",
-          "model_year": 2026,
-          "currency": "USD",
-          "price_type": "Starting MSRP",
-          "amount": 29600,
-          "source_name": "Toyota USA",
-          "source_url": "https://pressroom.toyota.com/",
-          "verified_date": "2026-07-28"
-        }
-      ],
+
+      "capacity": {
+        "seating": 5
+      },
+
+      "price": [],
+
       "images": {
         "hero": "",
         "gallery": [],
-        "image_source": "Toyota Official"
+        "image_source": "Licensed image required"
       },
-      "colors": [],
-      "features": [],
-      "safety": [],
-      "description": "2026 Toyota Camry.",
-      "history": "Toyota Camry midsize sedan.",
+
+      "description": "2026 Toyota Camry midsize hybrid sedan.",
+
+      "history": "Toyota Camry is a long-running midsize passenger-car nameplate.",
+
       "official_sources": [
         {
-          "name": "Toyota USA",
-          "url": "https://pressroom.toyota.com/"
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/whats-new-for-2026/"
         }
       ]
     },
@@ -342,67 +143,65 @@
 
     {
       "id": "toyota-rav4-2026",
+
       "brand": "Toyota",
       "model": "RAV4",
       "model_year": 2026,
+
+      "category": "SUV",
+      "body_style": "SUV",
+
       "production": {
         "start_year": 1994,
         "end_year": null
       },
+
       "generation": {
         "name": "Sixth Generation",
         "code": null,
         "number": 6
       },
-      "category": "Compact SUV",
-      "body_style": "SUV",
-      "market": ["USA"],
+
       "powertrain": {
         "fuel_type": "Hybrid / Plug-in Hybrid",
         "electrification": "Hybrid / PHEV",
+
         "engine": {
           "type": "4-Cylinder Hybrid",
           "displacement_l": null,
-          "cylinders": 4,
-          "aspiration": null
+          "cylinders": 4
         },
+
         "horsepower_hp": null,
         "torque_nm": null,
+
         "transmission": {
-          "type": "eCVT",
-          "gears": null
+          "type": "eCVT"
         },
+
         "drivetrain": "FWD / AWD"
       },
-      "performance": {},
-      "dimensions": {},
-      "capacity": {},
-      "price": [
-        {
-          "market": "USA",
-          "model_year": 2026,
-          "currency": "USD",
-          "price_type": "Starting MSRP",
-          "amount": 31900,
-          "source_name": "Toyota USA",
-          "source_url": "https://pressroom.toyota.com/vehicle/2026-toyota-rav4/",
-          "verified_date": "2026-07-28"
-        }
-      ],
+
+      "capacity": {
+        "seating": 5
+      },
+
+      "price": [],
+
       "images": {
         "hero": "",
         "gallery": [],
-        "image_source": "Toyota Official"
+        "image_source": "Licensed image required"
       },
-      "colors": [],
-      "features": [],
-      "safety": [],
-      "description": "2026 Toyota RAV4, sixth generation.",
-      "history": "RAV4 is Toyota's compact SUV nameplate.",
+
+      "description": "2026 Toyota RAV4 compact SUV.",
+
+      "history": "The RAV4 is Toyota's compact SUV nameplate.",
+
       "official_sources": [
         {
-          "name": "Toyota USA",
-          "url": "https://pressroom.toyota.com/vehicle/2026-toyota-rav4/"
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/whats-new-for-2026/"
         }
       ]
     },
@@ -410,67 +209,65 @@
 
     {
       "id": "toyota-tacoma-2026",
+
       "brand": "Toyota",
       "model": "Tacoma",
       "model_year": 2026,
+
+      "category": "Pickup",
+      "body_style": "Pickup Truck",
+
       "production": {
         "start_year": 1995,
         "end_year": null
       },
+
       "generation": {
         "name": "Current Generation",
         "code": null,
         "number": null
       },
-      "category": "Pickup Truck",
-      "body_style": "Pickup",
-      "market": ["USA"],
+
       "powertrain": {
         "fuel_type": "Gasoline / Hybrid",
         "electrification": "ICE / Hybrid",
+
         "engine": {
           "type": "4-Cylinder Turbo / Hybrid",
           "displacement_l": null,
-          "cylinders": 4,
-          "aspiration": "Turbocharged"
+          "cylinders": 4
         },
+
         "horsepower_hp": null,
         "torque_nm": null,
+
         "transmission": {
-          "type": "Automatic",
-          "gears": 8
+          "type": "Automatic"
         },
+
         "drivetrain": "RWD / 4WD"
       },
-      "performance": {},
-      "dimensions": {},
-      "capacity": {},
-      "price": [
-        {
-          "market": "USA",
-          "model_year": 2026,
-          "currency": "USD",
-          "price_type": "Starting MSRP",
-          "amount": 32445,
-          "source_name": "Toyota USA",
-          "source_url": "https://www.toyota.com/tacoma/",
-          "verified_date": "2026-07-28"
-        }
-      ],
+
+      "capacity": {
+        "seating": 5
+      },
+
+      "price": [],
+
       "images": {
         "hero": "",
         "gallery": [],
-        "image_source": "Toyota Official"
+        "image_source": "Licensed image required"
       },
-      "colors": [],
-      "features": [],
-      "safety": [],
-      "description": "2026 Toyota Tacoma pickup.",
-      "history": "Toyota Tacoma is a long-running midsize pickup truck.",
+
+      "description": "2026 Toyota Tacoma midsize pickup truck.",
+
+      "history": "Toyota Tacoma is a long-running midsize pickup truck nameplate.",
+
       "official_sources": [
         {
-          "name": "Toyota USA",
-          "url": "https://www.toyota.com/tacoma/"
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/whats-new-for-2026/"
         }
       ]
     },
@@ -478,67 +275,65 @@
 
     {
       "id": "toyota-4runner-2026",
+
       "brand": "Toyota",
       "model": "4Runner",
       "model_year": 2026,
+
+      "category": "SUV",
+      "body_style": "SUV",
+
       "production": {
         "start_year": 1984,
         "end_year": null
       },
+
       "generation": {
         "name": "Sixth Generation",
         "code": null,
         "number": 6
       },
-      "category": "SUV",
-      "body_style": "SUV",
-      "market": ["USA"],
+
       "powertrain": {
         "fuel_type": "Gasoline / Hybrid",
         "electrification": "ICE / Hybrid",
+
         "engine": {
           "type": "4-Cylinder Turbo / Hybrid",
           "displacement_l": null,
-          "cylinders": 4,
-          "aspiration": "Turbocharged"
+          "cylinders": 4
         },
+
         "horsepower_hp": null,
         "torque_nm": null,
+
         "transmission": {
-          "type": "Automatic",
-          "gears": 8
+          "type": "Automatic"
         },
+
         "drivetrain": "RWD / 4WD"
       },
-      "performance": {},
-      "dimensions": {},
-      "capacity": {},
-      "price": [
-        {
-          "market": "USA",
-          "model_year": 2026,
-          "currency": "USD",
-          "price_type": "Starting MSRP",
-          "amount": 41570,
-          "source_name": "Toyota USA",
-          "source_url": "https://pressroom.toyota.com/the-2026-toyota-4runner-engineered-for-exploration/",
-          "verified_date": "2026-07-28"
-        }
-      ],
+
+      "capacity": {
+        "seating": null
+      },
+
+      "price": [],
+
       "images": {
         "hero": "",
         "gallery": [],
-        "image_source": "Toyota Official"
+        "image_source": "Licensed image required"
       },
-      "colors": [],
-      "features": [],
-      "safety": [],
-      "description": "2026 Toyota 4Runner.",
-      "history": "Sixth-generation 4Runner.",
+
+      "description": "2026 Toyota 4Runner SUV.",
+
+      "history": "Toyota 4Runner is a long-running body-on-frame SUV nameplate.",
+
       "official_sources": [
         {
-          "name": "Toyota USA",
-          "url": "https://pressroom.toyota.com/the-2026-toyota-4runner-engineered-for-exploration/"
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/whats-new-for-2026/"
         }
       ]
     }
