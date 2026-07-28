@@ -1,170 +1,276 @@
-[
-  {
-    "brand": "Toyota",
-    "model": "AA",
-    "year_start": 1936,
-    "year_end": 1942,
-    "category": "Sedan",
-    "fuel": "Petrol",
-    "engine": "3.4L Inline-6",
-    "price_usd": null,
-    "image": "",
-    "description": "Toyota's first mass-produced passenger car and a foundational model in Toyota automotive history."
+{
+  "database": {
+    "name": "ToyotaLexusCar Shop",
+    "version": "2.0.0",
+    "last_updated": "2026-07-28",
+    "default_currency": "USD"
   },
-  {
-    "brand": "Toyota",
-    "model": "AB",
-    "year_start": 1936,
-    "year_end": 1942,
-    "category": "Convertible",
-    "fuel": "Petrol",
-    "engine": "3.4L Inline-6",
-    "price_usd": null,
-    "image": "",
-    "description": "Convertible derivative of the early Toyota AA family."
-  },
-  {
-    "brand": "Toyota",
-    "model": "AC",
-    "year_start": 1943,
-    "year_end": 1944,
-    "category": "Sedan",
-    "fuel": "Petrol",
-    "engine": "3.4L Inline-6",
-    "price_usd": null,
-    "image": "",
-    "description": "Early Toyota passenger car developed during the company's formative period."
-  },
-  {
-    "brand": "Toyota",
-    "model": "SA",
-    "year_start": 1951,
-    "year_end": 1955,
-    "category": "Sedan",
-    "fuel": "Petrol",
-    "engine": "1.0L Inline-4",
-    "price_usd": null,
-    "image": "",
-    "description": "Compact post-war Toyota passenger car known for its advanced engineering for the period."
-  },
-  {
-    "brand": "Toyota",
-    "model": "Crown",
-    "year_start": 1955,
-    "year_end": null,
-    "category": "Sedan",
-    "fuel": "Petrol",
-    "engine": null,
-    "price_usd": null,
-    "image": "",
-    "description": "One of Toyota's longest-running nameplates, introduced in 1955."
-  },
-  {
-    "brand": "Toyota",
-    "model": "Corona",
-    "year_start": 1957,
-    "year_end": 2001,
-    "category": "Sedan",
-    "fuel": "Petrol",
-    "engine": null,
-    "price_usd": null,
-    "image": "",
-    "description": "Long-running Toyota passenger-car nameplate introduced in the late 1950s."
-  },
-  {
-    "brand": "Toyota",
-    "model": "Publica",
-    "year_start": 1961,
-    "year_end": 1978,
-    "category": "Compact",
-    "fuel": "Petrol",
-    "engine": null,
-    "price_usd": null,
-    "image": "",
-    "description": "Toyota compact passenger car introduced in 1961."
-  },
-  {
-    "brand": "Toyota",
-    "model": "Sports 800",
-    "year_start": 1965,
-    "year_end": 1969,
-    "category": "Sports",
-    "fuel": "Petrol",
-    "engine": "0.8L Flat-2",
-    "price_usd": null,
-    "image": "",
-    "description": "Lightweight Toyota sports car produced during the 1960s."
-  },
-  {
-    "brand": "Toyota",
-    "model": "Corolla",
-    "year_start": 1966,
-    "year_end": null,
-    "category": "Sedan",
-    "fuel": "Petrol",
-    "engine": null,
-    "price_usd": null,
-    "image": "",
-    "description": "One of Toyota's most successful global nameplates, introduced in 1966."
-  },
-  {
-    "brand": "Toyota",
-    "model": "2000GT",
-    "year_start": 1967,
-    "year_end": 1970,
-    "category": "Sports",
-    "fuel": "Petrol",
-    "engine": "2.0L Inline-6",
-    "price_usd": null,
-    "image": "",
-    "description": "Iconic Japanese sports car developed by Toyota in the 1960s."
-  },
-  {
-    "brand": "Toyota",
-    "model": "Century",
-    "year_start": 1967,
-    "year_end": null,
-    "category": "Luxury Sedan",
-    "fuel": "Petrol",
-    "engine": null,
-    "price_usd": null,
-    "image": "",
-    "description": "Toyota's flagship luxury sedan nameplate, introduced in 1967."
-  },
-  {
-    "brand": "Toyota",
-    "model": "Hilux",
-    "year_start": 1968,
-    "year_end": null,
-    "category": "Pickup",
-    "fuel": "Petrol/Diesel",
-    "engine": null,
-    "price_usd": null,
-    "image": "",
-    "description": "Long-running Toyota pickup truck nameplate introduced in 1968."
-  },
-  {
-    "brand": "Toyota",
-    "model": "Mark II",
-    "year_start": 1968,
-    "year_end": 2004,
-    "category": "Sedan",
-    "fuel": "Petrol",
-    "engine": null,
-    "price_usd": null,
-    "image": "",
-    "description": "Toyota passenger-car nameplate introduced in the late 1960s."
-  },
-  {
-    "brand": "Toyota",
-    "model": "Sprinter",
-    "year_start": 1968,
-    "year_end": 2002,
-    "category": "Sedan",
-    "fuel": "Petrol",
-    "engine": null,
-    "price_usd": null,
-    "image": "",
-    "description": "Toyota passenger-car nameplate introduced in 1968 and later associated with the Corolla family."
-  }
-]
+
+  "cars": [
+    {
+      "id": "toyota-model-aa-1936",
+      "brand": "Toyota",
+      "model": "Model AA",
+      "model_year": 1936,
+
+      "production": {
+        "start_year": 1936,
+        "end_year": 1942
+      },
+
+      "generation": {
+        "name": "Model AA",
+        "code": "AA",
+        "number": 1
+      },
+
+      "category": "Sedan",
+      "body_style": "Sedan",
+
+      "powertrain": {
+        "fuel_type": "Gasoline",
+        "electrification": "ICE",
+
+        "engine": {
+          "type": "Inline-6",
+          "displacement_l": 3.389,
+          "cylinders": 6,
+          "aspiration": "Naturally Aspirated"
+        },
+
+        "horsepower_hp": 65,
+        "torque_nm": null,
+
+        "transmission": {
+          "type": null,
+          "gears": null
+        },
+
+        "drivetrain": null
+      },
+
+      "performance": {
+        "zero_to_sixty_mph_seconds": null,
+        "top_speed_mph": null
+      },
+
+      "dimensions": {
+        "length_mm": 4785,
+        "width_mm": 1730,
+        "height_mm": 1736,
+        "wheelbase_mm": 2850,
+        "curb_weight_kg": 1500
+      },
+
+      "capacity": {
+        "seating": null,
+        "cargo_liters": null,
+        "fuel_tank_liters": null
+      },
+
+      "price": [
+        {
+          "market": "Japan",
+          "model_year": 1936,
+          "currency": "JPY",
+          "price_type": "Original Price",
+          "amount": 3350,
+          "source_name": "Toyota Global",
+          "source_url": "https://www.toyota-global.com/company/history_of_toyota/75years/vehicle_lineage/car/id60011174/index.html",
+          "verified_date": "2026-07-28"
+        }
+      ],
+
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "image_source": "Toyota Official Archive"
+      },
+
+      "colors": [],
+      "features": [],
+      "safety": [],
+
+      "description": "Toyota's first production passenger car, introduced in 1936.",
+
+      "history": "The Model AA was announced in 1936 and production continued through 1942.",
+
+      "official_sources": [
+        {
+          "name": "Toyota Global",
+          "url": "https://www.toyota-global.com/company/history_of_toyota/75years/vehicle_lineage/car/id60011174/index.html"
+        }
+      ]
+    },
+
+    {
+      "id": "toyota-corolla-1966",
+      "brand": "Toyota",
+      "model": "Corolla",
+      "model_year": 1966,
+
+      "production": {
+        "start_year": 1966,
+        "end_year": null
+      },
+
+      "generation": {
+        "name": "First Generation",
+        "code": "E10",
+        "number": 1
+      },
+
+      "category": "Compact",
+      "body_style": "Sedan",
+
+      "powertrain": {
+        "fuel_type": "Gasoline",
+        "electrification": "ICE",
+
+        "engine": {
+          "type": "Inline-4",
+          "displacement_l": 1.077,
+          "cylinders": 4,
+          "aspiration": "Naturally Aspirated"
+        },
+
+        "horsepower_hp": null,
+        "torque_nm": null,
+
+        "transmission": {
+          "type": null,
+          "gears": null
+        },
+
+        "drivetrain": null
+      },
+
+      "performance": {
+        "zero_to_sixty_mph_seconds": null,
+        "top_speed_mph": null
+      },
+
+      "dimensions": {
+        "length_mm": null,
+        "width_mm": null,
+        "height_mm": null,
+        "wheelbase_mm": null,
+        "curb_weight_kg": null
+      },
+
+      "capacity": {
+        "seating": 5,
+        "cargo_liters": null,
+        "fuel_tank_liters": null
+      },
+
+      "price": [],
+
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "image_source": "Toyota Official Archive"
+      },
+
+      "colors": [],
+      "features": [],
+      "safety": [],
+
+      "description": "The first-generation Toyota Corolla debuted in 1966.",
+
+      "history": "The Corolla became one of Toyota's longest-running global nameplates.",
+
+      "official_sources": [
+        {
+          "name": "Toyota Global",
+          "url": "https://www.toyota-global.com/"
+        }
+      ]
+    },
+
+    {
+      "id": "lexus-ls-400-1989",
+      "brand": "Lexus",
+      "model": "LS 400",
+      "model_year": 1989,
+
+      "production": {
+        "start_year": 1989,
+        "end_year": null
+      },
+
+      "generation": {
+        "name": "First Generation",
+        "code": "XF10",
+        "number": 1
+      },
+
+      "category": "Luxury Sedan",
+      "body_style": "Sedan",
+
+      "powertrain": {
+        "fuel_type": "Gasoline",
+        "electrification": "ICE",
+
+        "engine": {
+          "type": "V8",
+          "displacement_l": 4.0,
+          "cylinders": 8,
+          "aspiration": "Naturally Aspirated"
+        },
+
+        "horsepower_hp": null,
+        "torque_nm": null,
+
+        "transmission": {
+          "type": null,
+          "gears": null
+        },
+
+        "drivetrain": "RWD"
+      },
+
+      "performance": {
+        "zero_to_sixty_mph_seconds": null,
+        "top_speed_mph": null
+      },
+
+      "dimensions": {
+        "length_mm": null,
+        "width_mm": null,
+        "height_mm": null,
+        "wheelbase_mm": null,
+        "curb_weight_kg": null
+      },
+
+      "capacity": {
+        "seating": null,
+        "cargo_liters": null,
+        "fuel_tank_liters": null
+      },
+
+      "price": [],
+
+      "images": {
+        "hero": "",
+        "gallery": [],
+        "image_source": "Lexus Official Archive"
+      },
+
+      "colors": [],
+      "features": [],
+      "safety": [],
+
+      "description": "The Lexus LS 400 was one of the two original Lexus models launched in 1989.",
+
+      "history": "The LS 400 established Lexus as a luxury vehicle brand.",
+
+      "official_sources": [
+        {
+          "name": "Lexus USA Newsroom",
+          "url": "https://pressroom.lexus.com/history-lexus/"
+        }
+      ]
+    }
+  ]
+}
