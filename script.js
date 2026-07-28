@@ -3,6 +3,7 @@
 /* =========================================
    TOYOTALEXUSCAR SHOP
    MASTER SCRIPT
+   Compatible with current cars.json
 ========================================= */
 
 let cars = [];
@@ -33,9 +34,7 @@ const mobileNav = document.getElementById("mobileNav");
 ========================================= */
 
 async function loadCars() {
-
     try {
-
         const response = await fetch("cars.json");
 
         if (!response.ok) {
@@ -51,26 +50,21 @@ async function loadCars() {
         renderCars();
 
     } catch (error) {
-
         console.error(error);
 
-        allModels.innerHTML = `
-            <div class="no-results">
+        if (allModels) {
+            allModels.innerHTML = `
+                <div class="no-results">
+                    <h3>Database Error</h3>
+                    <p>Please check your cars.json file.</p>
+                </div>
+            `;
+        }
 
-                <h3>Database Error</h3>
-
-                <p>
-                    Please check your cars.json file.
-                </p>
-
-            </div>
-        `;
-
-        resultsCount.textContent =
-            "Database unavailable.";
-
+        if (resultsCount) {
+            resultsCount.textContent = "Database unavailable.";
+        }
     }
-
 }
 
 
@@ -84,35 +78,44 @@ function getFilteredCars() {
 
         const brandMatch =
             currentBrand === "all" ||
-            car.brand === currentBrand;
+            String(car.brand || "").toLowerCase() ===
+            currentBrand.toLowerCase();
 
 
         const categoryMatch =
             currentCategory === "all" ||
-            car.category === currentCategory ||
-            car.powertrain?.electrification === currentCategory;
+            String(car.category || "").toLowerCase() ===
+            currentCategory.toLowerCase() ||
+            String(car.powertrain_type || "").toLowerCase() ===
+            currentCategory.toLowerCase();
 
 
         const searchable = [
 
             car.brand,
             car.model,
-            car.model_year,
+            car.year,
             car.category,
             car.body_style,
+            car.powertrain_type,
 
-            car.generation?.name,
-            car.generation?.code,
+            ...(Array.isArray(car.variants)
+                ? car.variants
+                : []),
 
-            car.powertrain?.fuel_type,
-            car.powertrain?.electrification,
-
-            car.powertrain?.engine?.type,
+            car.specifications?.fuel,
+            car.specifications?.engine,
+            car.specifications?.transmission,
+            car.specifications?.drivetrain,
 
             car.description
 
         ]
-        .filter(Boolean)
+        .filter(value =>
+            value !== null &&
+            value !== undefined &&
+            value !== ""
+        )
         .join(" ")
         .toLowerCase();
 
@@ -138,21 +141,24 @@ function getFilteredCars() {
 
 function renderCars() {
 
+    if (!allModels) return;
+
     const filtered = getFilteredCars();
 
     allModels.innerHTML = "";
 
 
-    resultsCount.textContent =
-        `${filtered.length} vehicle${
-            filtered.length === 1 ? "" : "s"
-        } found`;
+    if (resultsCount) {
+        resultsCount.textContent =
+            `${filtered.length} vehicle${
+                filtered.length === 1 ? "" : "s"
+            } found`;
+    }
 
 
     if (!filtered.length) {
 
         allModels.innerHTML = `
-
             <div class="no-results">
 
                 <h3>
@@ -164,7 +170,6 @@ function renderCars() {
                 </p>
 
             </div>
-
         `;
 
         return;
@@ -188,14 +193,21 @@ function renderCars() {
 
 function createCarCard(car) {
 
-    const card = document.createElement("article");
+    const card =
+        document.createElement("article");
 
     card.className = "model-card";
 
 
-    const images = getCarImages(car);
+    const images =
+        getCarImages(car);
 
-    const image = images[0] || "";
+    const image =
+        images[0] || "";
+
+
+    const carId =
+        encodeURIComponent(car.id || "");
 
 
     card.innerHTML = `
@@ -210,10 +222,13 @@ function createCarCard(car) {
                     <img
                         src="${escapeHTML(image)}"
                         alt="${escapeHTML(
-                            car.brand + " " + car.model
+                            `${car.brand || ""} ${car.model || ""}`
                         )}"
                         loading="lazy"
-                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        onerror="
+                            this.style.display='none';
+                            this.nextElementSibling.style.display='flex';
+                        "
                     >
 
                     <div
@@ -240,17 +255,17 @@ function createCarCard(car) {
         <div class="model-info">
 
             <span class="model-brand">
-                ${escapeHTML(car.brand)}
+                ${escapeHTML(car.brand || "N/A")}
             </span>
 
 
             <h3>
-                ${escapeHTML(car.model)}
+                ${escapeHTML(car.model || "Unknown Model")}
             </h3>
 
 
             <p class="model-year">
-                ${car.model_year || "N/A"}
+                ${car.year || "N/A"}
             </p>
 
 
@@ -267,7 +282,7 @@ function createCarCard(car) {
             <button
                 class="details-btn"
                 type="button"
-                onclick="showCarDetails('${escapeHTML(car.id)}')"
+                onclick="showCarDetails('${escapeHTML(car.id || "")}')"
             >
                 View Full Details
             </button>
@@ -326,23 +341,27 @@ function getCarImages(car) {
 
 
 /* =========================================
-   SHOW DETAILS
+   SHOW CAR DETAILS
 ========================================= */
 
 function showCarDetails(carId) {
 
-    const car = cars.find(
-        item => item.id === carId
-    );
+    const car =
+        cars.find(
+            item => item.id === carId
+        );
 
 
-    if (!car) return;
+    if (!car) {
+        return;
+    }
 
 
     closeCarDetails();
 
 
-    galleryImages = getCarImages(car);
+    galleryImages =
+        getCarImages(car);
 
     galleryIndex = 0;
 
@@ -351,9 +370,11 @@ function showCarDetails(carId) {
         document.createElement("div");
 
 
-    modal.id = "carDetailsModal";
+    modal.id =
+        "carDetailsModal";
 
-    modal.className = "car-details-modal";
+    modal.className =
+        "car-details-modal";
 
 
     modal.innerHTML = `
@@ -376,9 +397,7 @@ function showCarDetails(carId) {
             </button>
 
 
-            <!-- =========================
-                 GALLERY
-            ========================== -->
+            <!-- GALLERY -->
 
             <div class="car-gallery">
 
@@ -395,13 +414,12 @@ function showCarDetails(carId) {
                                     galleryImages[0]
                                 )}"
                                 alt="${escapeHTML(
-                                    car.brand +
-                                    " " +
-                                    car.model
+                                    `${car.brand || ""} ${car.model || ""}`
                                 )}"
-                                onerror="this.style.display='none';"
+                                onerror="
+                                    this.style.display='none';
+                                "
                             >
-
 
                             ${
                                 galleryImages.length > 1
@@ -411,14 +429,15 @@ function showCarDetails(carId) {
                                     <button
                                         class="gallery-prev"
                                         onclick="changeGalleryImage(-1)"
+                                        aria-label="Previous image"
                                     >
                                         ‹
                                     </button>
 
-
                                     <button
                                         class="gallery-next"
                                         onclick="changeGalleryImage(1)"
+                                        aria-label="Next image"
                                     >
                                         ›
                                     </button>
@@ -456,11 +475,14 @@ function showCarDetails(carId) {
                                     <button
                                         type="button"
                                         onclick="setGalleryImage(${index})"
+                                        aria-label="Image ${index + 1}"
                                     >
 
                                         <img
                                             src="${escapeHTML(image)}"
-                                            alt="Gallery image ${index + 1}"
+                                            alt="${escapeHTML(
+                                                `${car.model || "Car"} image ${index + 1}`
+                                            )}"
                                             loading="lazy"
                                         >
 
@@ -478,33 +500,29 @@ function showCarDetails(carId) {
                 }
 
 
-                <!-- IMAGE LICENSE -->
-
                 ${createImageCredit(car)}
 
             </div>
 
 
-            <!-- =========================
-                 DETAILS
-            ========================== -->
+            <!-- DETAILS -->
 
             <div class="details-content">
 
 
                 <span class="details-brand">
-                    ${escapeHTML(car.brand)}
+                    ${escapeHTML(car.brand || "N/A")}
                 </span>
 
 
                 <h2>
-                    ${escapeHTML(car.model)}
+                    ${escapeHTML(car.model || "Unknown Model")}
                 </h2>
 
 
                 <p class="details-year">
                     Model Year:
-                    ${car.model_year || "N/A"}
+                    ${car.year || "N/A"}
                 </p>
 
 
@@ -512,120 +530,67 @@ function showCarDetails(carId) {
 
                 <div class="details-grid">
 
-
                     ${detailItem(
                         "Brand",
                         car.brand
                     )}
-
 
                     ${detailItem(
                         "Model",
                         car.model
                     )}
 
-
                     ${detailItem(
                         "Year",
-                        car.model_year
+                        car.year
                     )}
-
 
                     ${detailItem(
                         "Category",
                         car.category
                     )}
 
-
                     ${detailItem(
                         "Body Style",
                         car.body_style
                     )}
 
-
                     ${detailItem(
-                        "Generation",
-                        car.generation?.name
+                        "Powertrain",
+                        car.powertrain_type
                     )}
-
-
-                    ${detailItem(
-                        "Generation Code",
-                        car.generation?.code
-                    )}
-
-
-                    ${detailItem(
-                        "Production",
-                        formatProduction(car)
-                    )}
-
 
                     ${detailItem(
                         "Fuel",
-                        car.powertrain?.fuel_type
+                        car.specifications?.fuel
                     )}
-
-
-                    ${detailItem(
-                        "Powertrain",
-                        car.powertrain?.electrification
-                    )}
-
 
                     ${detailItem(
                         "Engine",
-                        car.powertrain?.engine?.type
+                        car.specifications?.engine
                     )}
-
-
-                    ${detailItem(
-                        "Displacement",
-                        car.powertrain?.engine?.displacement_l
-                            ? car.powertrain.engine.displacement_l + " L"
-                            : null
-                    )}
-
-
-                    ${detailItem(
-                        "Cylinders",
-                        car.powertrain?.engine?.cylinders
-                    )}
-
-
-                    ${detailItem(
-                        "Horsepower",
-                        car.powertrain?.horsepower_hp
-                            ? car.powertrain.horsepower_hp + " hp"
-                            : null
-                    )}
-
-
-                    ${detailItem(
-                        "Torque",
-                        car.powertrain?.torque_nm
-                            ? car.powertrain.torque_nm + " Nm"
-                            : null
-                    )}
-
 
                     ${detailItem(
                         "Transmission",
-                        car.powertrain?.transmission?.type
+                        car.specifications?.transmission
                     )}
-
 
                     ${detailItem(
                         "Drivetrain",
-                        car.powertrain?.drivetrain
+                        car.specifications?.drivetrain
                     )}
-
 
                     ${detailItem(
                         "Seats",
-                        car.capacity?.seating
+                        car.specifications?.seating
                     )}
 
+                    ${detailItem(
+                        "Horsepower",
+                        car.specifications?.horsepower_hp
+                            ? `${car.specifications.horsepower_hp} hp`
+                            : null
+                    )}
 
                     ${detailItem(
                         "Price",
@@ -635,43 +600,75 @@ function showCarDetails(carId) {
                 </div>
 
 
+                <!-- VARIANTS -->
+
+                ${
+                    Array.isArray(car.variants) &&
+                    car.variants.length
+
+                    ? `
+
+                        <section class="details-section">
+
+                            <h3>
+                                Available Variants
+                            </h3>
+
+                            <div class="variant-list">
+
+                                ${car.variants.map(
+                                    variant => `
+                                        <span class="variant-tag">
+                                            ${escapeHTML(variant)}
+                                        </span>
+                                    `
+                                ).join("")}
+
+                            </div>
+
+                        </section>
+
+                    `
+
+                    : ""
+
+                }
+
+
                 <!-- DESCRIPTION -->
 
-                <section class="details-section">
+                ${
+                    car.description
 
-                    <h3>
-                        Description
-                    </h3>
+                    ? `
 
-                    <p>
-                        ${escapeHTML(
-                            car.description ||
-                            "Information unavailable."
-                        )}
-                    </p>
+                        <section class="details-section">
 
-                </section>
+                            <h3>
+                                Description
+                            </h3>
 
+                            <p>
+                                ${escapeHTML(
+                                    car.description
+                                )}
+                            </p>
 
-                <!-- HISTORY -->
+                        </section>
 
-                <section class="details-section">
+                    `
 
-                    <h3>
-                        History
-                    </h3>
+                    : ""
 
-                    <p>
-                        ${escapeHTML(
-                            car.history ||
-                            "Information unavailable."
-                        )}
-                    </p>
-
-                </section>
+                }
 
 
-                <!-- OFFICIAL SOURCES -->
+                <!-- IMAGE SOURCE -->
+
+                ${createImageCredit(car)}
+
+
+                <!-- OFFICIAL SOURCE -->
 
                 ${createOfficialSources(car)}
 
@@ -697,7 +694,8 @@ function showCarDetails(carId) {
 
 function createImageCredit(car) {
 
-    const imageData = car.images;
+    const imageData =
+        car.images;
 
 
     if (!imageData) {
@@ -705,23 +703,22 @@ function createImageCredit(car) {
     }
 
 
-    if (
-        !imageData.image_source &&
-        !imageData.license &&
-        !imageData.attribution
-    ) {
+    const source =
+        imageData.source || "";
 
-        return "";
-
-    }
-
-
-    let attributionText =
-        imageData.attribution || "";
-
-
-    let licenseText =
+    const license =
         imageData.license || "";
+
+    const commercial =
+        imageData.commercial_use;
+
+
+    if (
+        !source &&
+        !license
+    ) {
+        return "";
+    }
 
 
     return `
@@ -748,40 +745,31 @@ function createImageCredit(car) {
 
             <br>
 
-
             ${
-                imageData.image_source
+                source
                 ? `
                     Source:
-                    ${escapeHTML(
-                        imageData.image_source
-                    )}
+                    ${escapeHTML(source)}
                     <br>
                   `
                 : ""
             }
 
-
             ${
-                licenseText
+                license
                 ? `
                     License:
-                    ${escapeHTML(
-                        licenseText
-                    )}
+                    ${escapeHTML(license)}
                     <br>
                   `
                 : ""
             }
 
-
             ${
-                attributionText
+                typeof commercial === "boolean"
                 ? `
-                    Attribution:
-                    ${escapeHTML(
-                        attributionText
-                    )}
+                    Commercial Use:
+                    ${commercial ? "Yes" : "No"}
                   `
                 : ""
             }
@@ -799,29 +787,22 @@ function createImageCredit(car) {
 
 function createOfficialSources(car) {
 
-    if (
-        !Array.isArray(
-            car.official_sources
-        ) ||
-        !car.official_sources.length
-    ) {
+    const url =
+        car.official_source;
 
+
+    if (!url) {
         return "";
-
     }
 
 
-    const validSources =
-        car.official_sources.filter(
-            source =>
-                source &&
-                source.name &&
-                source.url
-        );
+    let hostname = "";
 
-
-    if (!validSources.length) {
-        return "";
+    try {
+        hostname =
+            new URL(url).hostname;
+    } catch (error) {
+        hostname = "";
     }
 
 
@@ -830,7 +811,7 @@ function createOfficialSources(car) {
         <section class="details-section">
 
             <h3>
-                Official / Data Sources
+                Official / Data Source
             </h3>
 
 
@@ -842,29 +823,25 @@ function createOfficialSources(car) {
                 "
             >
 
-                ${validSources.map(
-                    source => `
+                <a
+                    href="${escapeHTML(url)}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="
+                        color:#d7b85a;
+                        font-size:13px;
+                    "
+                >
 
-                        <a
-                            href="${escapeHTML(source.url)}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style="
-                                color:#d7b85a;
-                                font-size:13px;
-                            "
-                        >
+                    ${
+                        escapeHTML(
+                            hostname || "Official Source"
+                        )
+                    }
 
-                            ${escapeHTML(
-                                source.name
-                            )}
+                    ↗
 
-                            ↗
-
-                        </a>
-
-                    `
-                ).join("")}
+                </a>
 
             </div>
 
@@ -956,23 +933,23 @@ function updateGalleryImage() {
 
 function getPrice(car) {
 
-    if (
-        !Array.isArray(car.price) ||
-        !car.price.length
-    ) {
-
-        return "Price pending verification";
-
-    }
-
-
     const price =
-        car.price[0];
+        car.price;
+
+
+    if (!price) {
+        return "Price pending verification";
+    }
+
+
+    const amount =
+        price.starting_msrp;
 
 
     if (
-        price.amount === null ||
-        price.amount === undefined
+        amount === null ||
+        amount === undefined ||
+        amount === ""
     ) {
 
         return "Price pending verification";
@@ -980,11 +957,18 @@ function getPrice(car) {
     }
 
 
-    return `${price.currency} ${
-        Number(
-            price.amount
-        ).toLocaleString("en-US")
-    }`;
+    const currency =
+        price.currency ||
+        "USD";
+
+
+    const formatted =
+        Number(amount).toLocaleString(
+            "en-US"
+        );
+
+
+    return `${currency} ${formatted}`;
 
 }
 
@@ -1002,7 +986,6 @@ function detailItem(label, value) {
     ) {
 
         return "";
-
     }
 
 
@@ -1021,31 +1004,6 @@ function detailItem(label, value) {
         </div>
 
     `;
-
-}
-
-
-/* =========================================
-   PRODUCTION
-========================================= */
-
-function formatProduction(car) {
-
-    const start =
-        car.production?.start_year;
-
-    const end =
-        car.production?.end_year;
-
-
-    if (!start) {
-        return "N/A";
-    }
-
-
-    return end
-        ? `${start}–${end}`
-        : `${start}–Present`;
 
 }
 
@@ -1079,7 +1037,8 @@ document
 
 
                 currentBrand =
-                    button.dataset.brand;
+                    button.dataset.brand ||
+                    "all";
 
 
                 renderCars();
@@ -1121,7 +1080,8 @@ document
 
 
                 currentCategory =
-                    button.dataset.category;
+                    button.dataset.category ||
+                    "all";
 
 
                 renderCars();
@@ -1166,13 +1126,14 @@ if (clearSearch) {
         "click",
         () => {
 
-            searchInput.value = "";
+            if (searchInput) {
+                searchInput.value = "";
+                searchInput.focus();
+            }
 
             currentSearch = "";
 
             renderCars();
-
-            searchInput.focus();
 
         }
     );
@@ -1184,7 +1145,7 @@ if (clearSearch) {
    MOBILE MENU
 ========================================= */
 
-if (mobileMenuBtn) {
+if (mobileMenuBtn && mobileNav) {
 
     mobileMenuBtn.addEventListener(
         "click",
@@ -1210,9 +1171,11 @@ document
             "click",
             () => {
 
-                mobileNav.classList.remove(
-                    "open"
-                );
+                if (mobileNav) {
+                    mobileNav.classList.remove(
+                        "open"
+                    );
+                }
 
             }
         );
@@ -1273,9 +1236,7 @@ function closeCarDetails() {
 
 
     if (modal) {
-
         modal.remove();
-
     }
 
 
