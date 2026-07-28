@@ -1,68 +1,50 @@
 "use strict";
 
-
-/* =========================
-   GLOBAL DATA
-========================= */
+/* =========================================
+   TOYOTALEXUSCAR SHOP
+   MASTER SCRIPT
+========================================= */
 
 let cars = [];
 
 let currentBrand = "all";
-
 let currentCategory = "all";
-
 let currentSearch = "";
 
 let galleryImages = [];
-
 let galleryIndex = 0;
 
 
-/* =========================
+/* =========================================
    ELEMENTS
-========================= */
+========================================= */
 
-const allModels =
-    document.getElementById("allModels");
+const allModels = document.getElementById("allModels");
+const searchInput = document.getElementById("searchInput");
+const clearSearch = document.getElementById("clearSearch");
+const resultsCount = document.getElementById("resultsCount");
 
-const searchInput =
-    document.getElementById("searchInput");
-
-const clearSearch =
-    document.getElementById("clearSearch");
-
-const resultsCount =
-    document.getElementById("resultsCount");
-
-const mobileMenuBtn =
-    document.getElementById("mobileMenuBtn");
-
-const mobileNav =
-    document.getElementById("mobileNav");
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const mobileNav = document.getElementById("mobileNav");
 
 
-/* =========================
-   LOAD JSON
-========================= */
+/* =========================================
+   LOAD DATABASE
+========================================= */
 
 async function loadCars() {
 
     try {
 
-        const response =
-            await fetch("cars.json");
+        const response = await fetch("cars.json");
 
         if (!response.ok) {
-            throw new Error(
-                "cars.json could not be loaded."
-            );
+            throw new Error("cars.json could not be loaded.");
         }
 
-        const database =
-            await response.json();
+        const database = await response.json();
 
-        cars =
-            Array.isArray(database.cars)
+        cars = Array.isArray(database.cars)
             ? database.cars
             : [];
 
@@ -75,13 +57,10 @@ async function loadCars() {
         allModels.innerHTML = `
             <div class="no-results">
 
-                <h3>
-                    Database Error
-                </h3>
+                <h3>Database Error</h3>
 
                 <p>
-                    Please check your
-                    cars.json file.
+                    Please check your cars.json file.
                 </p>
 
             </div>
@@ -89,13 +68,15 @@ async function loadCars() {
 
         resultsCount.textContent =
             "Database unavailable.";
+
     }
+
 }
 
 
-/* =========================
-   FILTER
-========================= */
+/* =========================================
+   FILTER DATABASE
+========================================= */
 
 function getFilteredCars() {
 
@@ -109,29 +90,26 @@ function getFilteredCars() {
         const categoryMatch =
             currentCategory === "all" ||
             car.category === currentCategory ||
-            car.powertrain?.electrification ===
-                currentCategory;
+            car.powertrain?.electrification === currentCategory;
 
 
         const searchable = [
 
             car.brand,
-
             car.model,
-
             car.model_year,
-
             car.category,
-
             car.body_style,
 
             car.generation?.name,
-
             car.generation?.code,
 
             car.powertrain?.fuel_type,
+            car.powertrain?.electrification,
 
-            car.powertrain?.electrification
+            car.powertrain?.engine?.type,
+
+            car.description
 
         ]
         .filter(Boolean)
@@ -140,9 +118,7 @@ function getFilteredCars() {
 
 
         const searchMatch =
-            searchable.includes(
-                currentSearch
-            );
+            searchable.includes(currentSearch);
 
 
         return (
@@ -156,24 +132,20 @@ function getFilteredCars() {
 }
 
 
-/* =========================
-   RENDER
-========================= */
+/* =========================================
+   RENDER CARS
+========================================= */
 
 function renderCars() {
 
-    const filtered =
-        getFilteredCars();
-
+    const filtered = getFilteredCars();
 
     allModels.innerHTML = "";
 
 
     resultsCount.textContent =
         `${filtered.length} vehicle${
-            filtered.length === 1
-            ? ""
-            : "s"
+            filtered.length === 1 ? "" : "s"
         } found`;
 
 
@@ -188,8 +160,7 @@ function renderCars() {
                 </h3>
 
                 <p>
-                    Try another search
-                    or filter.
+                    Try another search or filter.
                 </p>
 
             </div>
@@ -211,26 +182,20 @@ function renderCars() {
 }
 
 
-/* =========================
-   CARD
-========================= */
+/* =========================================
+   CREATE CAR CARD
+========================================= */
 
 function createCarCard(car) {
 
-    const card =
-        document.createElement("article");
+    const card = document.createElement("article");
+
+    card.className = "model-card";
 
 
-    card.className =
-        "model-card";
+    const images = getCarImages(car);
 
-
-    const images =
-        getCarImages(car);
-
-
-    const image =
-        images[0] || "";
+    const image = images[0] || "";
 
 
     card.innerHTML = `
@@ -239,19 +204,27 @@ function createCarCard(car) {
 
             ${
                 image
+
                 ? `
 
                     <img
                         src="${escapeHTML(image)}"
                         alt="${escapeHTML(
-                            car.brand +
-                            " " +
-                            car.model
+                            car.brand + " " + car.model
                         )}"
                         loading="lazy"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                     >
 
+                    <div
+                        class="no-image"
+                        style="display:none;"
+                    >
+                        Image Unavailable
+                    </div>
+
                 `
+
                 : `
 
                     <div class="no-image">
@@ -267,52 +240,36 @@ function createCarCard(car) {
         <div class="model-info">
 
             <span class="model-brand">
-
                 ${escapeHTML(car.brand)}
-
             </span>
 
 
             <h3>
-
                 ${escapeHTML(car.model)}
-
             </h3>
 
 
             <p class="model-year">
-
                 ${car.model_year || "N/A"}
-
             </p>
 
 
             <p class="model-category">
-
-                ${escapeHTML(
-                    car.category || "N/A"
-                )}
-
+                ${escapeHTML(car.category || "N/A")}
             </p>
 
 
             <p class="model-price">
-
                 ${getPrice(car)}
-
             </p>
 
 
             <button
                 class="details-btn"
                 type="button"
-                onclick="showCarDetails('${escapeHTML(
-                    car.id
-                )}')"
+                onclick="showCarDetails('${escapeHTML(car.id)}')"
             >
-
                 View Full Details
-
             </button>
 
         </div>
@@ -325,9 +282,9 @@ function createCarCard(car) {
 }
 
 
-/* =========================
-   IMAGE ARRAY
-========================= */
+/* =========================================
+   GET IMAGES
+========================================= */
 
 function getCarImages(car) {
 
@@ -344,25 +301,21 @@ function getCarImages(car) {
 
 
     if (
-        Array.isArray(
-            car.images?.gallery
-        )
+        Array.isArray(car.images?.gallery)
     ) {
 
-        car.images.gallery.forEach(
-            image => {
+        car.images.gallery.forEach(image => {
 
-                if (
-                    image &&
-                    !images.includes(image)
-                ) {
+            if (
+                image &&
+                !images.includes(image)
+            ) {
 
-                    images.push(image);
-
-                }
+                images.push(image);
 
             }
-        );
+
+        });
 
     }
 
@@ -372,17 +325,15 @@ function getCarImages(car) {
 }
 
 
-/* =========================
-   DETAILS MODAL
-========================= */
+/* =========================================
+   SHOW DETAILS
+========================================= */
 
 function showCarDetails(carId) {
 
-    const car =
-        cars.find(
-            item =>
-                item.id === carId
-        );
+    const car = cars.find(
+        item => item.id === carId
+    );
 
 
     if (!car) return;
@@ -391,9 +342,7 @@ function showCarDetails(carId) {
     closeCarDetails();
 
 
-    galleryImages =
-        getCarImages(car);
-
+    galleryImages = getCarImages(car);
 
     galleryIndex = 0;
 
@@ -402,12 +351,9 @@ function showCarDetails(carId) {
         document.createElement("div");
 
 
-    modal.id =
-        "carDetailsModal";
+    modal.id = "carDetailsModal";
 
-
-    modal.className =
-        "car-details-modal";
+    modal.className = "car-details-modal";
 
 
     modal.innerHTML = `
@@ -430,7 +376,9 @@ function showCarDetails(carId) {
             </button>
 
 
-            <!-- GALLERY -->
+            <!-- =========================
+                 GALLERY
+            ========================== -->
 
             <div class="car-gallery">
 
@@ -438,6 +386,7 @@ function showCarDetails(carId) {
 
                     ${
                         galleryImages.length
+
                         ? `
 
                             <img
@@ -450,10 +399,13 @@ function showCarDetails(carId) {
                                     " " +
                                     car.model
                                 )}"
+                                onerror="this.style.display='none';"
                             >
+
 
                             ${
                                 galleryImages.length > 1
+
                                 ? `
 
                                     <button
@@ -463,6 +415,7 @@ function showCarDetails(carId) {
                                         ‹
                                     </button>
 
+
                                     <button
                                         class="gallery-next"
                                         onclick="changeGalleryImage(1)"
@@ -471,10 +424,13 @@ function showCarDetails(carId) {
                                     </button>
 
                                 `
+
                                 : ""
+
                             }
 
                         `
+
                         : `
 
                             <div class="no-image">
@@ -489,6 +445,7 @@ function showCarDetails(carId) {
 
                 ${
                     galleryImages.length > 1
+
                     ? `
 
                         <div class="gallery-thumbnails">
@@ -497,14 +454,14 @@ function showCarDetails(carId) {
                                 (image, index) => `
 
                                     <button
+                                        type="button"
                                         onclick="setGalleryImage(${index})"
                                     >
 
                                         <img
-                                            src="${escapeHTML(
-                                                image
-                                            )}"
+                                            src="${escapeHTML(image)}"
                                             alt="Gallery image ${index + 1}"
+                                            loading="lazy"
                                         >
 
                                     </button>
@@ -515,134 +472,160 @@ function showCarDetails(carId) {
                         </div>
 
                     `
+
                     : ""
+
                 }
+
+
+                <!-- IMAGE LICENSE -->
+
+                ${createImageCredit(car)}
 
             </div>
 
 
-            <!-- INFORMATION -->
+            <!-- =========================
+                 DETAILS
+            ========================== -->
 
             <div class="details-content">
 
+
                 <span class="details-brand">
-
-                    ${escapeHTML(
-                        car.brand
-                    )}
-
+                    ${escapeHTML(car.brand)}
                 </span>
 
 
                 <h2>
-
-                    ${escapeHTML(
-                        car.model
-                    )}
-
+                    ${escapeHTML(car.model)}
                 </h2>
 
 
                 <p class="details-year">
-
                     Model Year:
                     ${car.model_year || "N/A"}
-
                 </p>
 
 
+                <!-- SPECIFICATIONS -->
+
                 <div class="details-grid">
+
 
                     ${detailItem(
                         "Brand",
                         car.brand
                     )}
 
+
+                    ${detailItem(
+                        "Model",
+                        car.model
+                    )}
+
+
+                    ${detailItem(
+                        "Year",
+                        car.model_year
+                    )}
+
+
                     ${detailItem(
                         "Category",
                         car.category
                     )}
+
 
                     ${detailItem(
                         "Body Style",
                         car.body_style
                     )}
 
-                    ${detailItem(
-                        "Model Year",
-                        car.model_year
-                    )}
 
                     ${detailItem(
                         "Generation",
                         car.generation?.name
                     )}
 
+
                     ${detailItem(
                         "Generation Code",
                         car.generation?.code
                     )}
+
 
                     ${detailItem(
                         "Production",
                         formatProduction(car)
                     )}
 
+
                     ${detailItem(
                         "Fuel",
                         car.powertrain?.fuel_type
                     )}
+
 
                     ${detailItem(
                         "Powertrain",
                         car.powertrain?.electrification
                     )}
 
+
                     ${detailItem(
                         "Engine",
                         car.powertrain?.engine?.type
                     )}
 
+
                     ${detailItem(
                         "Displacement",
                         car.powertrain?.engine?.displacement_l
-                        ? car.powertrain.engine.displacement_l + " L"
-                        : null
+                            ? car.powertrain.engine.displacement_l + " L"
+                            : null
                     )}
+
 
                     ${detailItem(
                         "Cylinders",
                         car.powertrain?.engine?.cylinders
                     )}
 
+
                     ${detailItem(
                         "Horsepower",
                         car.powertrain?.horsepower_hp
-                        ? car.powertrain.horsepower_hp + " hp"
-                        : null
+                            ? car.powertrain.horsepower_hp + " hp"
+                            : null
                     )}
+
 
                     ${detailItem(
                         "Torque",
                         car.powertrain?.torque_nm
-                        ? car.powertrain.torque_nm + " Nm"
-                        : null
+                            ? car.powertrain.torque_nm + " Nm"
+                            : null
                     )}
+
 
                     ${detailItem(
                         "Transmission",
                         car.powertrain?.transmission?.type
                     )}
 
+
                     ${detailItem(
                         "Drivetrain",
                         car.powertrain?.drivetrain
                     )}
 
+
                     ${detailItem(
                         "Seats",
                         car.capacity?.seating
                     )}
+
 
                     ${detailItem(
                         "Price",
@@ -651,6 +634,8 @@ function showCarDetails(carId) {
 
                 </div>
 
+
+                <!-- DESCRIPTION -->
 
                 <section class="details-section">
 
@@ -668,6 +653,8 @@ function showCarDetails(carId) {
                 </section>
 
 
+                <!-- HISTORY -->
+
                 <section class="details-section">
 
                     <h3>
@@ -684,27 +671,9 @@ function showCarDetails(carId) {
                 </section>
 
 
-                ${
-                    car.official_sources?.length
-                    ? `
+                <!-- OFFICIAL SOURCES -->
 
-                        <section class="details-section">
-
-                            <h3>
-                                Data Sources
-                            </h3>
-
-                            <p>
-                                Information is
-                                based on the
-                                listed source(s).
-                            </p>
-
-                        </section>
-
-                    `
-                    : ""
-                }
+                ${createOfficialSources(car)}
 
             </div>
 
@@ -715,7 +684,6 @@ function showCarDetails(carId) {
 
     document.body.appendChild(modal);
 
-
     document.body.classList.add(
         "modal-open"
     );
@@ -723,21 +691,205 @@ function showCarDetails(carId) {
 }
 
 
-/* =========================
-   GALLERY
-========================= */
+/* =========================================
+   IMAGE CREDIT
+========================================= */
+
+function createImageCredit(car) {
+
+    const imageData = car.images;
+
+
+    if (!imageData) {
+        return "";
+    }
+
+
+    if (
+        !imageData.image_source &&
+        !imageData.license &&
+        !imageData.attribution
+    ) {
+
+        return "";
+
+    }
+
+
+    let attributionText =
+        imageData.attribution || "";
+
+
+    let licenseText =
+        imageData.license || "";
+
+
+    return `
+
+        <div
+            class="image-credit"
+            style="
+                margin-top:12px;
+                padding:12px;
+                border:1px solid #262626;
+                border-radius:8px;
+                background:#101010;
+                color:#777;
+                font-size:11px;
+                line-height:1.6;
+            "
+        >
+
+            <strong
+                style="color:#aaa;"
+            >
+                Image Information
+            </strong>
+
+            <br>
+
+
+            ${
+                imageData.image_source
+                ? `
+                    Source:
+                    ${escapeHTML(
+                        imageData.image_source
+                    )}
+                    <br>
+                  `
+                : ""
+            }
+
+
+            ${
+                licenseText
+                ? `
+                    License:
+                    ${escapeHTML(
+                        licenseText
+                    )}
+                    <br>
+                  `
+                : ""
+            }
+
+
+            ${
+                attributionText
+                ? `
+                    Attribution:
+                    ${escapeHTML(
+                        attributionText
+                    )}
+                  `
+                : ""
+            }
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================
+   OFFICIAL SOURCES
+========================================= */
+
+function createOfficialSources(car) {
+
+    if (
+        !Array.isArray(
+            car.official_sources
+        ) ||
+        !car.official_sources.length
+    ) {
+
+        return "";
+
+    }
+
+
+    const validSources =
+        car.official_sources.filter(
+            source =>
+                source &&
+                source.name &&
+                source.url
+        );
+
+
+    if (!validSources.length) {
+        return "";
+    }
+
+
+    return `
+
+        <section class="details-section">
+
+            <h3>
+                Official / Data Sources
+            </h3>
+
+
+            <div
+                style="
+                    display:flex;
+                    flex-direction:column;
+                    gap:8px;
+                "
+            >
+
+                ${validSources.map(
+                    source => `
+
+                        <a
+                            href="${escapeHTML(source.url)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style="
+                                color:#d7b85a;
+                                font-size:13px;
+                            "
+                        >
+
+                            ${escapeHTML(
+                                source.name
+                            )}
+
+                            ↗
+
+                        </a>
+
+                    `
+                ).join("")}
+
+            </div>
+
+        </section>
+
+    `;
+
+}
+
+
+/* =========================================
+   GALLERY NEXT / PREVIOUS
+========================================= */
 
 function changeGalleryImage(direction) {
 
-    if (!galleryImages.length) return;
+    if (!galleryImages.length) {
+        return;
+    }
 
 
     galleryIndex += direction;
 
 
-    if (
-        galleryIndex < 0
-    ) {
+    if (galleryIndex < 0) {
 
         galleryIndex =
             galleryImages.length - 1;
@@ -762,6 +914,14 @@ function changeGalleryImage(direction) {
 
 function setGalleryImage(index) {
 
+    if (
+        index < 0 ||
+        index >= galleryImages.length
+    ) {
+        return;
+    }
+
+
     galleryIndex = index;
 
     updateGalleryImage();
@@ -777,7 +937,9 @@ function updateGalleryImage() {
         );
 
 
-    if (!image) return;
+    if (!image) {
+        return;
+    }
 
 
     image.src =
@@ -788,9 +950,9 @@ function updateGalleryImage() {
 }
 
 
-/* =========================
+/* =========================================
    PRICE
-========================= */
+========================================= */
 
 function getPrice(car) {
 
@@ -827,14 +989,11 @@ function getPrice(car) {
 }
 
 
-/* =========================
+/* =========================================
    DETAIL ITEM
-========================= */
+========================================= */
 
-function detailItem(
-    label,
-    value
-) {
+function detailItem(label, value) {
 
     if (
         value === null ||
@@ -866,9 +1025,9 @@ function detailItem(
 }
 
 
-/* =========================
+/* =========================================
    PRODUCTION
-========================= */
+========================================= */
 
 function formatProduction(car) {
 
@@ -880,9 +1039,7 @@ function formatProduction(car) {
 
 
     if (!start) {
-
         return "N/A";
-
     }
 
 
@@ -893,9 +1050,9 @@ function formatProduction(car) {
 }
 
 
-/* =========================
-   BRAND FILTERS
-========================= */
+/* =========================================
+   BRAND FILTER
+========================================= */
 
 document
     .querySelectorAll(".brand-filter")
@@ -933,9 +1090,9 @@ document
     });
 
 
-/* =========================
-   CATEGORY FILTERS
-========================= */
+/* =========================================
+   CATEGORY FILTER
+========================================= */
 
 document
     .querySelectorAll(
@@ -975,9 +1132,9 @@ document
     });
 
 
-/* =========================
+/* =========================================
    SEARCH
-========================= */
+========================================= */
 
 if (searchInput) {
 
@@ -990,6 +1147,7 @@ if (searchInput) {
                     .trim()
                     .toLowerCase();
 
+
             renderCars();
 
         }
@@ -997,6 +1155,10 @@ if (searchInput) {
 
 }
 
+
+/* =========================================
+   CLEAR SEARCH
+========================================= */
 
 if (clearSearch) {
 
@@ -1018,9 +1180,9 @@ if (clearSearch) {
 }
 
 
-/* =========================
+/* =========================================
    MOBILE MENU
-========================= */
+========================================= */
 
 if (mobileMenuBtn) {
 
@@ -1058,9 +1220,9 @@ document
     });
 
 
-/* =========================
-   KEYBOARD
-========================= */
+/* =========================================
+   KEYBOARD CONTROLS
+========================================= */
 
 document.addEventListener(
     "keydown",
@@ -1098,9 +1260,9 @@ document.addEventListener(
 );
 
 
-/* =========================
-   CLOSE MODAL
-========================= */
+/* =========================================
+   CLOSE DETAILS
+========================================= */
 
 function closeCarDetails() {
 
@@ -1124,9 +1286,9 @@ function closeCarDetails() {
 }
 
 
-/* =========================
-   SECURITY
-========================= */
+/* =========================================
+   ESCAPE HTML
+========================================= */
 
 function escapeHTML(value) {
 
@@ -1157,8 +1319,8 @@ function escapeHTML(value) {
 }
 
 
-/* =========================
-   START
-========================= */
+/* =========================================
+   START WEBSITE
+========================================= */
 
 loadCars();
