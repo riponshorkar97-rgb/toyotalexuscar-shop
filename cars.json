@@ -1,7 +1,7 @@
 {
   "database": {
     "name": "ToyotaLexusCar Shop",
-    "version": "3.1.0",
+    "version": "3.2.0",
     "last_updated": "2026-07-28",
     "market": "USA",
     "currency": "USD",
@@ -18,6 +18,11 @@
       "category": "Sedan",
       "body_style": "Sedan",
 
+      "production": {
+        "start_year": 1966,
+        "end_year": null
+      },
+
       "generation": {
         "name": "Twelfth Generation",
         "code": "E210",
@@ -27,16 +32,20 @@
       "powertrain": {
         "fuel_type": "Gasoline",
         "electrification": "ICE",
+
         "engine": {
           "type": "2.0L Dynamic Force 4-Cylinder",
           "displacement_l": 2.0,
           "cylinders": 4
         },
+
         "horsepower_hp": 169,
         "torque_nm": null,
+
         "transmission": {
           "type": "Dynamic-Shift CVT"
         },
+
         "drivetrain": "FWD"
       },
 
@@ -55,21 +64,25 @@
       ],
 
       "images": {
-        "hero": "",
-        "gallery": [],
-        "image_source": "Licensed image required"
+        "hero": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toyota_Corolla_XII_facelift_001.jpg",
+
+        "gallery": [
+          "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toyota_Corolla_XII_facelift_001.jpg"
+        ],
+
+        "license": "CC0",
+        "image_source": "Wikimedia Commons",
+        "attribution": null
       },
 
       "description": "2026 Toyota Corolla compact sedan.",
 
+      "history": "The Corolla nameplate was introduced in 1966 and is one of Toyota's longest-running passenger-car nameplates.",
+
       "official_sources": [
         {
           "name": "Toyota USA Newsroom",
-          "url": "https://pressroom.toyota.com/bold-and-compact-the-2026-toyota-corolla-offers-impressive-features-and-technology/"
-        },
-        {
-          "name": "Toyota Full-Line Pricing",
-          "url": "https://pressroom.toyota.com/toyota-full-line-pricing/"
+          "url": "https://pressroom.toyota.com/"
         }
       ]
     },
@@ -83,6 +96,11 @@
       "category": "Sedan",
       "body_style": "Sedan",
 
+      "production": {
+        "start_year": 1982,
+        "end_year": null
+      },
+
       "generation": {
         "name": "Ninth Generation",
         "code": "XV80",
@@ -92,16 +110,20 @@
       "powertrain": {
         "fuel_type": "Hybrid",
         "electrification": "Hybrid",
+
         "engine": {
           "type": "2.5L 4-Cylinder Hybrid",
           "displacement_l": 2.5,
           "cylinders": 4
         },
+
         "horsepower_hp": null,
         "torque_nm": null,
+
         "transmission": {
           "type": "eCVT"
         },
+
         "drivetrain": "FWD / AWD"
       },
 
@@ -116,26 +138,30 @@
           "currency": "USD",
           "type": "Starting MSRP",
           "destination_included": false,
-          "verification_status": "Pending official trim-price verification"
+          "verification_status": "Pending official verification"
         }
       ],
 
       "images": {
-        "hero": "",
-        "gallery": [],
-        "image_source": "Licensed image required"
+        "hero": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toyota_Camry_2.5_Hybrid_Ascent_Sport_%28IX%29_%E2%80%93_f_02012026.jpg",
+
+        "gallery": [
+          "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toyota_Camry_2.5_Hybrid_Ascent_Sport_%28IX%29_%E2%80%93_f_02012026.jpg"
+        ],
+
+        "license": "CC BY-SA 3.0 DE",
+        "image_source": "Wikimedia Commons",
+        "attribution": "M 93 / Wikimedia Commons"
       },
 
       "description": "2026 Toyota Camry hybrid midsize sedan.",
 
+      "history": "The Toyota Camry is a long-running midsize passenger-car nameplate.",
+
       "official_sources": [
         {
           "name": "Toyota USA Newsroom",
-          "url": "https://pressroom.toyota.com/whats-new-for-2026/"
-        },
-        {
-          "name": "Toyota Full-Line Pricing",
-          "url": "https://pressroom.toyota.com/toyota-full-line-pricing/"
+          "url": "https://pressroom.toyota.com/"
         }
       ]
     },
@@ -149,6 +175,11 @@
       "category": "SUV",
       "body_style": "SUV",
 
+      "production": {
+        "start_year": 1994,
+        "end_year": null
+      },
+
       "generation": {
         "name": "Sixth Generation",
         "code": null,
@@ -158,16 +189,20 @@
       "powertrain": {
         "fuel_type": "Hybrid / Plug-in Hybrid",
         "electrification": "Hybrid / PHEV",
+
         "engine": {
           "type": "2.5L 4-Cylinder Hybrid",
           "displacement_l": 2.5,
           "cylinders": 4
         },
+
         "horsepower_hp": null,
         "torque_nm": null,
+
         "transmission": {
           "type": "eCVT"
         },
+
         "drivetrain": "FWD / AWD"
       },
 
@@ -186,21 +221,25 @@
       ],
 
       "images": {
-        "hero": "",
-        "gallery": [],
-        "image_source": "Licensed image required"
+        "hero": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Moscow%2C_Toyota_RAV4_white-black%2C_May_2026_01.jpg",
+
+        "gallery": [
+          "https://commons.wikimedia.org/wiki/Special:Redirect/file/Moscow%2C_Toyota_RAV4_white-black%2C_May_2026_01.jpg"
+        ],
+
+        "license": "CC0",
+        "image_source": "Wikimedia Commons",
+        "attribution": null
       },
 
-      "description": "All-new 2026 Toyota RAV4 compact SUV.",
+      "description": "2026 Toyota RAV4 compact SUV.",
+
+      "history": "The Toyota RAV4 is a compact SUV nameplate introduced in the 1990s.",
 
       "official_sources": [
         {
           "name": "Toyota USA Newsroom",
-          "url": "https://pressroom.toyota.com/the-next-adventure-begins-2026-rav4-arrives-this-winter/"
-        },
-        {
-          "name": "Toyota Full-Line Pricing",
-          "url": "https://pressroom.toyota.com/toyota-full-line-pricing/"
+          "url": "https://pressroom.toyota.com/"
         }
       ]
     },
@@ -214,6 +253,11 @@
       "category": "Pickup",
       "body_style": "Pickup Truck",
 
+      "production": {
+        "start_year": 1995,
+        "end_year": null
+      },
+
       "generation": {
         "name": "Fourth Generation",
         "code": "N400",
@@ -223,16 +267,20 @@
       "powertrain": {
         "fuel_type": "Gasoline / Hybrid",
         "electrification": "ICE / Hybrid",
+
         "engine": {
           "type": "2.4L Turbo / i-FORCE MAX",
           "displacement_l": 2.4,
           "cylinders": 4
         },
+
         "horsepower_hp": null,
         "torque_nm": null,
+
         "transmission": {
           "type": "8-Speed Automatic"
         },
+
         "drivetrain": "RWD / 4WD"
       },
 
@@ -247,26 +295,26 @@
           "currency": "USD",
           "type": "Starting MSRP",
           "destination_included": false,
-          "verification_status": "Pending official trim-price verification"
+          "verification_status": "Pending official verification"
         }
       ],
 
       "images": {
         "hero": "",
         "gallery": [],
-        "image_source": "Licensed image required"
+        "license": null,
+        "image_source": "Pending license verification",
+        "attribution": null
       },
 
       "description": "2026 Toyota Tacoma midsize pickup truck.",
 
+      "history": "Toyota Tacoma is a long-running midsize pickup truck nameplate.",
+
       "official_sources": [
         {
           "name": "Toyota USA Newsroom",
-          "url": "https://pressroom.toyota.com/whats-new-for-2026/"
-        },
-        {
-          "name": "Toyota Full-Line Pricing",
-          "url": "https://pressroom.toyota.com/toyota-full-line-pricing/"
+          "url": "https://pressroom.toyota.com/"
         }
       ]
     },
@@ -280,6 +328,11 @@
       "category": "SUV",
       "body_style": "SUV",
 
+      "production": {
+        "start_year": 1984,
+        "end_year": null
+      },
+
       "generation": {
         "name": "Sixth Generation",
         "code": null,
@@ -289,16 +342,20 @@
       "powertrain": {
         "fuel_type": "Gasoline / Hybrid",
         "electrification": "ICE / Hybrid",
+
         "engine": {
           "type": "2.4L Turbo / i-FORCE MAX",
           "displacement_l": 2.4,
           "cylinders": 4
         },
+
         "horsepower_hp": 278,
         "torque_nm": null,
+
         "transmission": {
           "type": "8-Speed Automatic"
         },
+
         "drivetrain": "2WD / Part-Time 4WD / Full-Time 4WD"
       },
 
@@ -317,21 +374,25 @@
       ],
 
       "images": {
-        "hero": "",
-        "gallery": [],
-        "image_source": "Licensed image required"
+        "hero": "https://commons.wikimedia.org/wiki/Special:Redirect/file/25_Toyota_4Runner_TRD_Sport_LA.jpg",
+
+        "gallery": [
+          "https://commons.wikimedia.org/wiki/Special:Redirect/file/25_Toyota_4Runner_TRD_Sport_LA.jpg"
+        ],
+
+        "license": "CC0",
+        "image_source": "Wikimedia Commons",
+        "attribution": null
       },
 
-      "description": "2026 Toyota 4Runner sixth-generation SUV.",
+      "description": "2026 Toyota 4Runner SUV.",
+
+      "history": "Toyota 4Runner is a long-running body-on-frame SUV nameplate.",
 
       "official_sources": [
         {
           "name": "Toyota USA Newsroom",
-          "url": "https://pressroom.toyota.com/the-2026-toyota-4runner-engineered-for-exploration/"
-        },
-        {
-          "name": "Toyota Full-Line Pricing",
-          "url": "https://pressroom.toyota.com/toyota-full-line-pricing/"
+          "url": "https://pressroom.toyota.com/"
         }
       ]
     }
