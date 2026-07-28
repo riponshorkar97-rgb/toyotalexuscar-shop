@@ -1,1 +1,74 @@
-
+[
+  {
+    "brand": "Toyota",
+    "model": "AA",
+    "year_start": 1936,
+    "year_end": 1942,
+    "category": "Sedan",
+    "fuel": "Petrol",
+    "engine": "3.4L Inline-6",
+    "price_usd": null,
+    "image": "",
+    "description": "Toyota's first mass-produced passenger car and a foundational model in Toyota automotive history."
+  },
+  {
+    "brand": "Toyota",
+    "model": "AB",
+    "year_start": 1936,
+    "year_end": 1942,
+    "category": "Convertible",
+    "fuel": "Petrol",
+    "engine": "3.4L Inline-6",
+    "price_usd": null,
+    "image": "",
+    "description": "Convertible derivative of the early Toyota AA family."
+  },
+  {
+    "brand": "Toyota",
+    "model": "AC",
+    "year_start": 1943,
+    "year_end": 1944,
+    "category": "Sedan",
+    "fuel": "Petrol",
+    "engine": "3.4L Inline-6",
+    "price_usd": null,
+    "image": "",
+    "description": "Early Toyota passenger car developed during the company's formative period."
+  },
+  {
+    "brand": "Toyota",
+    "model": "SA",
+    "year_start": 1951,
+    "year_end": 1955,
+    "category": "Sedan",
+    "fuel": "Petrol",
+    "engine": "1.0L Inline-4",
+    "price_usd": null,
+    "image": "",
+    "description": "Compact post-war Toyota passenger car known for its advanced engineering for the period."
+  },
+  {
+    "brand": "Toyota",
+    "model": "Crown",
+    "year_start": 1955,
+    "year_end": null,
+    "category": "Sedan",
+    "fuel": "Petrol",
+    "engine": null,
+    "price_usd": null,
+    "image": "",
+    "description": "One of Toyota's longest-running nameplates, introduced in 1955."
+  },
+  {
+    "brand": "Toyota",
+    "model": "Corona",
+    "year_start": 1957,
+    "year_end": 2001,
+    "category": "Sedan",
+    "fuel": "Petrol",
+    "engine": null,
+    "price_usd": null,
+    "image": "",
+    "description": "Long-running Toyota passenger-car nameplate introduced in the late 1950s."
+  }
+]
