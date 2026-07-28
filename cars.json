@@ -70,5 +70,101 @@
     "price_usd": null,
     "image": "",
     "description": "Long-running Toyota passenger-car nameplate introduced in the late 1950s."
+  },
+  {
+    "brand": "Toyota",
+    "model": "Publica",
+    "year_start": 1961,
+    "year_end": 1978,
+    "category": "Compact",
+    "fuel": "Petrol",
+    "engine": null,
+    "price_usd": null,
+    "image": "",
+    "description": "Toyota compact passenger car introduced in 1961."
+  },
+  {
+    "brand": "Toyota",
+    "model": "Sports 800",
+    "year_start": 1965,
+    "year_end": 1969,
+    "category": "Sports",
+    "fuel": "Petrol",
+    "engine": "0.8L Flat-2",
+    "price_usd": null,
+    "image": "",
+    "description": "Lightweight Toyota sports car produced during the 1960s."
+  },
+  {
+    "brand": "Toyota",
+    "model": "Corolla",
+    "year_start": 1966,
+    "year_end": null,
+    "category": "Sedan",
+    "fuel": "Petrol",
+    "engine": null,
+    "price_usd": null,
+    "image": "",
+    "description": "One of Toyota's most successful global nameplates, introduced in 1966."
+  },
+  {
+    "brand": "Toyota",
+    "model": "2000GT",
+    "year_start": 1967,
+    "year_end": 1970,
+    "category": "Sports",
+    "fuel": "Petrol",
+    "engine": "2.0L Inline-6",
+    "price_usd": null,
+    "image": "",
+    "description": "Iconic Japanese sports car developed by Toyota in the 1960s."
+  },
+  {
+    "brand": "Toyota",
+    "model": "Century",
+    "year_start": 1967,
+    "year_end": null,
+    "category": "Luxury Sedan",
+    "fuel": "Petrol",
+    "engine": null,
+    "price_usd": null,
+    "image": "",
+    "description": "Toyota's flagship luxury sedan nameplate, introduced in 1967."
+  },
+  {
+    "brand": "Toyota",
+    "model": "Hilux",
+    "year_start": 1968,
+    "year_end": null,
+    "category": "Pickup",
+    "fuel": "Petrol/Diesel",
+    "engine": null,
+    "price_usd": null,
+    "image": "",
+    "description": "Long-running Toyota pickup truck nameplate introduced in 1968."
+  },
+  {
+    "brand": "Toyota",
+    "model": "Mark II",
+    "year_start": 1968,
+    "year_end": 2004,
+    "category": "Sedan",
+    "fuel": "Petrol",
+    "engine": null,
+    "price_usd": null,
+    "image": "",
+    "description": "Toyota passenger-car nameplate introduced in the late 1960s."
+  },
+  {
+    "brand": "Toyota",
+    "model": "Sprinter",
+    "year_start": 1968,
+    "year_end": 2002,
+    "category": "Sedan",
+    "fuel": "Petrol",
+    "engine": null,
+    "price_usd": null,
+    "image": "",
+    "description": "Toyota passenger-car nameplate introduced in 1968 and later associated with the Corolla family."
   }
 ]
