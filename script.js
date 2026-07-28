@@ -2,8 +2,7 @@
 
 /* =========================================
    TOYOTALEXUSCAR SHOP
-   MASTER SCRIPT
-   Compatible with current cars.json
+   PART 14 — JSON COMPATIBILITY SCRIPT
 ========================================= */
 
 let cars = [];
@@ -30,11 +29,13 @@ const mobileNav = document.getElementById("mobileNav");
 
 
 /* =========================================
-   LOAD DATABASE
+   LOAD CARS.JSON
 ========================================= */
 
 async function loadCars() {
+
     try {
+
         const response = await fetch("cars.json");
 
         if (!response.ok) {
@@ -47,29 +48,39 @@ async function loadCars() {
             ? database.cars
             : [];
 
+        console.log("Cars loaded:", cars.length);
+
         renderCars();
 
     } catch (error) {
+
         console.error(error);
 
         if (allModels) {
+
             allModels.innerHTML = `
                 <div class="no-results">
                     <h3>Database Error</h3>
-                    <p>Please check your cars.json file.</p>
+                    <p>
+                        Please check your cars.json file.
+                    </p>
                 </div>
             `;
+
         }
 
         if (resultsCount) {
-            resultsCount.textContent = "Database unavailable.";
+            resultsCount.textContent =
+                "Database unavailable.";
         }
+
     }
+
 }
 
 
 /* =========================================
-   FILTER DATABASE
+   FILTER
 ========================================= */
 
 function getFilteredCars() {
@@ -78,16 +89,14 @@ function getFilteredCars() {
 
         const brandMatch =
             currentBrand === "all" ||
-            String(car.brand || "").toLowerCase() ===
-            currentBrand.toLowerCase();
+            car.brand === currentBrand;
 
 
         const categoryMatch =
             currentCategory === "all" ||
-            String(car.category || "").toLowerCase() ===
-            currentCategory.toLowerCase() ||
-            String(car.powertrain_type || "").toLowerCase() ===
-            currentCategory.toLowerCase();
+            car.category === currentCategory ||
+            car.body_style === currentCategory ||
+            car.powertrain_type === currentCategory;
 
 
         const searchable = [
@@ -106,16 +115,10 @@ function getFilteredCars() {
             car.specifications?.fuel,
             car.specifications?.engine,
             car.specifications?.transmission,
-            car.specifications?.drivetrain,
-
-            car.description
+            car.specifications?.drivetrain
 
         ]
-        .filter(value =>
-            value !== null &&
-            value !== undefined &&
-            value !== ""
-        )
+        .filter(Boolean)
         .join(" ")
         .toLowerCase();
 
@@ -136,23 +139,29 @@ function getFilteredCars() {
 
 
 /* =========================================
-   RENDER CARS
+   RENDER
 ========================================= */
 
 function renderCars() {
 
     if (!allModels) return;
 
-    const filtered = getFilteredCars();
+    const filtered =
+        getFilteredCars();
+
 
     allModels.innerHTML = "";
 
 
     if (resultsCount) {
+
         resultsCount.textContent =
             `${filtered.length} vehicle${
-                filtered.length === 1 ? "" : "s"
+                filtered.length === 1
+                    ? ""
+                    : "s"
             } found`;
+
     }
 
 
@@ -160,19 +169,15 @@ function renderCars() {
 
         allModels.innerHTML = `
             <div class="no-results">
-
-                <h3>
-                    No vehicles found
-                </h3>
-
+                <h3>No vehicles found</h3>
                 <p>
                     Try another search or filter.
                 </p>
-
             </div>
         `;
 
         return;
+
     }
 
 
@@ -188,7 +193,7 @@ function renderCars() {
 
 
 /* =========================================
-   CREATE CAR CARD
+   CREATE CARD
 ========================================= */
 
 function createCarCard(car) {
@@ -196,18 +201,21 @@ function createCarCard(car) {
     const card =
         document.createElement("article");
 
-    card.className = "model-card";
+
+    card.className =
+        "model-card";
 
 
     const images =
         getCarImages(car);
 
+
     const image =
         images[0] || "";
 
 
-    const carId =
-        encodeURIComponent(car.id || "");
+    const price =
+        getPrice(car);
 
 
     card.innerHTML = `
@@ -222,7 +230,9 @@ function createCarCard(car) {
                     <img
                         src="${escapeHTML(image)}"
                         alt="${escapeHTML(
-                            `${car.brand || ""} ${car.model || ""}`
+                            car.brand +
+                            " " +
+                            car.model
                         )}"
                         loading="lazy"
                         onerror="
@@ -255,12 +265,12 @@ function createCarCard(car) {
         <div class="model-info">
 
             <span class="model-brand">
-                ${escapeHTML(car.brand || "N/A")}
+                ${escapeHTML(car.brand)}
             </span>
 
 
             <h3>
-                ${escapeHTML(car.model || "Unknown Model")}
+                ${escapeHTML(car.model)}
             </h3>
 
 
@@ -270,19 +280,20 @@ function createCarCard(car) {
 
 
             <p class="model-category">
-                ${escapeHTML(car.category || "N/A")}
+                ${escapeHTML(
+                    car.category || "N/A"
+                )}
             </p>
 
 
             <p class="model-price">
-                ${getPrice(car)}
+                ${escapeHTML(price)}
             </p>
 
 
             <button
                 class="details-btn"
                 type="button"
-                onclick="showCarDetails('${escapeHTML(car.id || "")}')"
             >
                 View Full Details
             </button>
@@ -290,6 +301,20 @@ function createCarCard(car) {
         </div>
 
     `;
+
+
+    const button =
+        card.querySelector(".details-btn");
+
+
+    if (button) {
+
+        button.addEventListener(
+            "click",
+            () => showCarDetails(car.id)
+        );
+
+    }
 
 
     return card;
@@ -306,7 +331,10 @@ function getCarImages(car) {
     const images = [];
 
 
-    if (car.images?.hero) {
+    if (
+        car.images &&
+        car.images.hero
+    ) {
 
         images.push(
             car.images.hero
@@ -316,21 +344,26 @@ function getCarImages(car) {
 
 
     if (
-        Array.isArray(car.images?.gallery)
+        car.images &&
+        Array.isArray(
+            car.images.gallery
+        )
     ) {
 
-        car.images.gallery.forEach(image => {
+        car.images.gallery.forEach(
+            image => {
 
-            if (
-                image &&
-                !images.includes(image)
-            ) {
+                if (
+                    image &&
+                    !images.includes(image)
+                ) {
 
-                images.push(image);
+                    images.push(image);
+
+                }
 
             }
-
-        });
+        );
 
     }
 
@@ -341,7 +374,7 @@ function getCarImages(car) {
 
 
 /* =========================================
-   SHOW CAR DETAILS
+   DETAILS MODAL
 ========================================= */
 
 function showCarDetails(carId) {
@@ -352,9 +385,7 @@ function showCarDetails(carId) {
         );
 
 
-    if (!car) {
-        return;
-    }
+    if (!car) return;
 
 
     closeCarDetails();
@@ -362,6 +393,7 @@ function showCarDetails(carId) {
 
     galleryImages =
         getCarImages(car);
+
 
     galleryIndex = 0;
 
@@ -372,6 +404,7 @@ function showCarDetails(carId) {
 
     modal.id =
         "carDetailsModal";
+
 
     modal.className =
         "car-details-modal";
@@ -390,6 +423,7 @@ function showCarDetails(carId) {
 
             <button
                 class="details-close"
+                type="button"
                 onclick="closeCarDetails()"
                 aria-label="Close"
             >
@@ -414,12 +448,23 @@ function showCarDetails(carId) {
                                     galleryImages[0]
                                 )}"
                                 alt="${escapeHTML(
-                                    `${car.brand || ""} ${car.model || ""}`
+                                    car.brand +
+                                    " " +
+                                    car.model
                                 )}"
                                 onerror="
                                     this.style.display='none';
+                                    this.nextElementSibling.style.display='flex';
                                 "
                             >
+
+                            <div
+                                class="no-image"
+                                style="display:none;"
+                            >
+                                Image Unavailable
+                            </div>
+
 
                             ${
                                 galleryImages.length > 1
@@ -428,16 +473,16 @@ function showCarDetails(carId) {
 
                                     <button
                                         class="gallery-prev"
+                                        type="button"
                                         onclick="changeGalleryImage(-1)"
-                                        aria-label="Previous image"
                                     >
                                         ‹
                                     </button>
 
                                     <button
                                         class="gallery-next"
+                                        type="button"
                                         onclick="changeGalleryImage(1)"
-                                        aria-label="Next image"
                                     >
                                         ›
                                     </button>
@@ -475,14 +520,11 @@ function showCarDetails(carId) {
                                     <button
                                         type="button"
                                         onclick="setGalleryImage(${index})"
-                                        aria-label="Image ${index + 1}"
                                     >
 
                                         <img
                                             src="${escapeHTML(image)}"
-                                            alt="${escapeHTML(
-                                                `${car.model || "Car"} image ${index + 1}`
-                                            )}"
+                                            alt="Gallery image ${index + 1}"
                                             loading="lazy"
                                         >
 
@@ -509,14 +551,13 @@ function showCarDetails(carId) {
 
             <div class="details-content">
 
-
                 <span class="details-brand">
-                    ${escapeHTML(car.brand || "N/A")}
+                    ${escapeHTML(car.brand)}
                 </span>
 
 
                 <h2>
-                    ${escapeHTML(car.model || "Unknown Model")}
+                    ${escapeHTML(car.model)}
                 </h2>
 
 
@@ -561,6 +602,13 @@ function showCarDetails(carId) {
                     )}
 
                     ${detailItem(
+                        "Variants",
+                        Array.isArray(car.variants)
+                            ? car.variants.join(", ")
+                            : null
+                    )}
+
+                    ${detailItem(
                         "Fuel",
                         car.specifications?.fuel
                     )}
@@ -593,40 +641,33 @@ function showCarDetails(carId) {
                     )}
 
                     ${detailItem(
-                        "Price",
+                        "Starting MSRP",
                         getPrice(car)
                     )}
 
                 </div>
 
 
-                <!-- VARIANTS -->
+                <!-- PRICE STATUS -->
 
                 ${
-                    Array.isArray(car.variants) &&
-                    car.variants.length
+                    car.price?.status
 
                     ? `
 
-                        <section class="details-section">
+                        <div class="details-section">
 
                             <h3>
-                                Available Variants
+                                Price Status
                             </h3>
 
-                            <div class="variant-list">
+                            <p>
+                                ${escapeHTML(
+                                    car.price.status
+                                )}
+                            </p>
 
-                                ${car.variants.map(
-                                    variant => `
-                                        <span class="variant-tag">
-                                            ${escapeHTML(variant)}
-                                        </span>
-                                    `
-                                ).join("")}
-
-                            </div>
-
-                        </section>
+                        </div>
 
                     `
 
@@ -635,22 +676,22 @@ function showCarDetails(carId) {
                 }
 
 
-                <!-- DESCRIPTION -->
+                <!-- IMAGE SOURCE -->
 
                 ${
-                    car.description
+                    car.images?.source
 
                     ? `
 
                         <section class="details-section">
 
                             <h3>
-                                Description
+                                Image Source
                             </h3>
 
                             <p>
                                 ${escapeHTML(
-                                    car.description
+                                    car.images.source
                                 )}
                             </p>
 
@@ -663,14 +704,9 @@ function showCarDetails(carId) {
                 }
 
 
-                <!-- IMAGE SOURCE -->
-
-                ${createImageCredit(car)}
-
-
                 <!-- OFFICIAL SOURCE -->
 
-                ${createOfficialSources(car)}
+                ${createOfficialSource(car)}
 
             </div>
 
@@ -680,6 +716,7 @@ function showCarDetails(carId) {
 
 
     document.body.appendChild(modal);
+
 
     document.body.classList.add(
         "modal-open"
@@ -694,29 +731,7 @@ function showCarDetails(carId) {
 
 function createImageCredit(car) {
 
-    const imageData =
-        car.images;
-
-
-    if (!imageData) {
-        return "";
-    }
-
-
-    const source =
-        imageData.source || "";
-
-    const license =
-        imageData.license || "";
-
-    const commercial =
-        imageData.commercial_use;
-
-
-    if (
-        !source &&
-        !license
-    ) {
+    if (!car.images) {
         return "";
     }
 
@@ -737,41 +752,40 @@ function createImageCredit(car) {
             "
         >
 
-            <strong
-                style="color:#aaa;"
-            >
+            <strong style="color:#aaa;">
                 Image Information
             </strong>
 
-            <br>
-
             ${
-                source
-                ? `
-                    Source:
-                    ${escapeHTML(source)}
-                    <br>
-                  `
-                : ""
+                car.images.source
+                    ? `<br>Source:
+                       ${escapeHTML(
+                           car.images.source
+                       )}`
+                    : ""
             }
 
             ${
-                license
-                ? `
-                    License:
-                    ${escapeHTML(license)}
-                    <br>
-                  `
-                : ""
+                car.images.license
+                    ? `<br>License:
+                       ${escapeHTML(
+                           car.images.license
+                       )}`
+                    : ""
             }
 
             ${
-                typeof commercial === "boolean"
-                ? `
-                    Commercial Use:
-                    ${commercial ? "Yes" : "No"}
-                  `
-                : ""
+                typeof car.images.commercial_use
+                    === "boolean"
+
+                    ? `<br>Commercial Use:
+                       ${
+                           car.images.commercial_use
+                               ? "Allowed"
+                               : "Restricted / Verify"
+                       }`
+
+                    : ""
             }
 
         </div>
@@ -782,27 +796,15 @@ function createImageCredit(car) {
 
 
 /* =========================================
-   OFFICIAL SOURCES
+   OFFICIAL SOURCE
 ========================================= */
 
-function createOfficialSources(car) {
+function createOfficialSource(car) {
 
-    const url =
-        car.official_source;
-
-
-    if (!url) {
+    if (
+        !car.official_source
+    ) {
         return "";
-    }
-
-
-    let hostname = "";
-
-    try {
-        hostname =
-            new URL(url).hostname;
-    } catch (error) {
-        hostname = "";
     }
 
 
@@ -811,39 +813,24 @@ function createOfficialSources(car) {
         <section class="details-section">
 
             <h3>
-                Official / Data Source
+                Official Source
             </h3>
 
-
-            <div
+            <a
+                href="${escapeHTML(
+                    car.official_source
+                )}"
+                target="_blank"
+                rel="noopener noreferrer"
                 style="
-                    display:flex;
-                    flex-direction:column;
-                    gap:8px;
+                    color:#d7b85a;
+                    font-size:13px;
                 "
             >
 
-                <a
-                    href="${escapeHTML(url)}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style="
-                        color:#d7b85a;
-                        font-size:13px;
-                    "
-                >
+                View Official Source ↗
 
-                    ${
-                        escapeHTML(
-                            hostname || "Official Source"
-                        )
-                    }
-
-                    ↗
-
-                </a>
-
-            </div>
+            </a>
 
         </section>
 
@@ -853,7 +840,7 @@ function createOfficialSources(car) {
 
 
 /* =========================================
-   GALLERY NEXT / PREVIOUS
+   GALLERY
 ========================================= */
 
 function changeGalleryImage(direction) {
@@ -937,19 +924,10 @@ function getPrice(car) {
         car.price;
 
 
-    if (!price) {
-        return "Price pending verification";
-    }
-
-
-    const amount =
-        price.starting_msrp;
-
-
     if (
-        amount === null ||
-        amount === undefined ||
-        amount === ""
+        !price ||
+        price.starting_msrp === null ||
+        price.starting_msrp === undefined
     ) {
 
         return "Price pending verification";
@@ -957,18 +935,11 @@ function getPrice(car) {
     }
 
 
-    const currency =
-        price.currency ||
-        "USD";
-
-
-    const formatted =
-        Number(amount).toLocaleString(
-            "en-US"
-        );
-
-
-    return `${currency} ${formatted}`;
+    return `${price.currency || "USD"} ${
+        Number(
+            price.starting_msrp
+        ).toLocaleString("en-US")
+    }`;
 
 }
 
@@ -986,6 +957,7 @@ function detailItem(label, value) {
     ) {
 
         return "";
+
     }
 
 
@@ -1145,15 +1117,19 @@ if (clearSearch) {
    MOBILE MENU
 ========================================= */
 
-if (mobileMenuBtn && mobileNav) {
+if (mobileMenuBtn) {
 
     mobileMenuBtn.addEventListener(
         "click",
         () => {
 
-            mobileNav.classList.toggle(
-                "open"
-            );
+            if (mobileNav) {
+
+                mobileNav.classList.toggle(
+                    "open"
+                );
+
+            }
 
         }
     );
@@ -1172,9 +1148,11 @@ document
             () => {
 
                 if (mobileNav) {
+
                     mobileNav.classList.remove(
                         "open"
                     );
+
                 }
 
             }
@@ -1184,7 +1162,7 @@ document
 
 
 /* =========================================
-   KEYBOARD CONTROLS
+   KEYBOARD
 ========================================= */
 
 document.addEventListener(
@@ -1224,7 +1202,7 @@ document.addEventListener(
 
 
 /* =========================================
-   CLOSE DETAILS
+   CLOSE MODAL
 ========================================= */
 
 function closeCarDetails() {
@@ -1281,7 +1259,7 @@ function escapeHTML(value) {
 
 
 /* =========================================
-   START WEBSITE
+   START
 ========================================= */
 
 loadCars();
