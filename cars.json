@@ -1,65 +1,250 @@
-{
-  "database": {
-    "name": "ToyotaLexusCar Shop",
-    "version": "5.0.0"
+[
+  {
+    "id": 1,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "code": "E100",
+    "type": "Sedan",
+    "year": "1991-1998"
   },
-  "cars": [
-    {
-      "id": "toyota-camry-2026",
-      "brand": "Toyota",
-      "model": "Camry",
-      "model_year": 2026,
-      "category": "Sedan",
-      "body_style": "Sedan",
-      "generation": {
-        "name": "Ninth Generation",
-        "code": "XV80"
-      },
-      "production": {
-        "start_year": 2024,
-        "end_year": null
-      },
-      "powertrain": {
-        "fuel_type": "Hybrid",
-        "electrification": "Hybrid",
-        "engine": {
-          "type": "2.5L 4-Cylinder Hybrid",
-          "displacement_l": 2.5,
-          "cylinders": 4
-        },
-        "horsepower_hp": null,
-        "torque_nm": null,
-        "transmission": {
-          "type": "eCVT"
-        },
-        "drivetrain": "FWD / AWD"
-      },
-      "capacity": {
-        "seating": 5
-      },
-      "price": [
-        {
-          "amount": null,
-          "currency": "USD",
-          "type": "Starting MSRP",
-          "status": "Verify current official pricing"
-        }
-      ],
-      "images": {
-        "hero": "",
-        "gallery": [],
-        "image_source": "Toyota USA Newsroom",
-        "license": "Editorial-use restricted",
-        "attribution": "Toyota USA Newsroom"
-      },
-      "description": "Toyota Camry 2026.",
-      "history": "Toyota Camry midsize sedan.",
-      "official_sources": [
-        {
-          "name": "Toyota USA Newsroom",
-          "url": "https://pressroom.toyota.com/"
-        }
-      ]
-    }
-  ]
-}
+  {
+    "id": 2,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "code": "E110",
+    "type": "Sedan",
+    "year": "1995-2002"
+  },
+  {
+    "id": 3,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "code": "E120",
+    "type": "Sedan",
+    "year": "2000-2006"
+  },
+  {
+    "id": 4,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "code": "E140",
+    "type": "Sedan",
+    "year": "2006-2013"
+  },
+  {
+    "id": 5,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "code": "E170",
+    "type": "Sedan",
+    "year": "2013-2019"
+  },
+  {
+    "id": 6,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "code": "E210",
+    "type": "Sedan",
+    "year": "2018-Present"
+  },
+  {
+    "id": 7,
+    "brand": "Toyota",
+    "model": "Camry",
+    "code": "XV20",
+    "type": "Sedan",
+    "year": "1996-2001"
+  },
+  {
+    "id": 8,
+    "brand": "Toyota",
+    "model": "Camry",
+    "code": "XV30",
+    "type": "Sedan",
+    "year": "2001-2006"
+  },
+  {
+    "id": 9,
+    "brand": "Toyota",
+    "model": "Camry",
+    "code": "XV40",
+    "type": "Sedan",
+    "year": "2006-2011"
+  },
+  {
+    "id": 10,
+    "brand": "Toyota",
+    "model": "Camry",
+    "code": "XV50",
+    "type": "Sedan",
+    "year": "2011-2017"
+  },
+  {
+    "id": 11,
+    "brand": "Toyota",
+    "model": "Camry",
+    "code": "XV70",
+    "type": "Sedan",
+    "year": "2017-2024"
+  },
+  {
+    "id": 12,
+    "brand": "Toyota",
+    "model": "RAV4",
+    "code": "XA30",
+    "type": "SUV",
+    "year": "2005-2012"
+  },
+  {
+    "id": 13,
+    "brand": "Toyota",
+    "model": "RAV4",
+    "code": "XA40",
+    "type": "SUV",
+    "year": "2012-2018"
+  },
+  {
+    "id": 14,
+    "brand": "Toyota",
+    "model": "RAV4",
+    "code": "XA50",
+    "type": "SUV",
+    "year": "2018-Present"
+  },
+  {
+    "id": 15,
+    "brand": "Toyota",
+    "model": "Land Cruiser",
+    "code": "J100",
+    "type": "SUV",
+    "year": "1998-2007"
+  },
+  {
+    "id": 16,
+    "brand": "Toyota",
+    "model": "Land Cruiser",
+    "code": "J200",
+    "type": "SUV",
+    "year": "2007-2021"
+  },
+  {
+    "id": 17,
+    "brand": "Toyota",
+    "model": "Land Cruiser",
+    "code": "J300",
+    "type": "SUV",
+    "year": "2021-Present"
+  },
+  {
+    "id": 18,
+    "brand": "Toyota",
+    "model": "Hilux",
+    "code": "N80",
+    "type": "Pickup",
+    "year": "2015-Present"
+  },
+  {
+    "id": 19,
+    "brand": "Toyota",
+    "model": "Fortuner",
+    "code": "AN50",
+    "type": "SUV",
+    "year": "2004-2015"
+  },
+  {
+    "id": 20,
+    "brand": "Toyota",
+    "model": "Fortuner",
+    "code": "AN160",
+    "type": "SUV",
+    "year": "2015-Present"
+  },
+  {
+    "id": 21,
+    "brand": "Lexus",
+    "model": "IS",
+    "code": "XE10",
+    "type": "Sedan",
+    "year": "1998-2005"
+  },
+  {
+    "id": 22,
+    "brand": "Lexus",
+    "model": "IS",
+    "code": "XE20",
+    "type": "Sedan",
+    "year": "2005-2013"
+  },
+  {
+    "id": 23,
+    "brand": "Lexus",
+    "model": "IS",
+    "code": "XE30",
+    "type": "Sedan",
+    "year": "2013-Present"
+  },
+  {
+    "id": 24,
+    "brand": "Lexus",
+    "model": "ES",
+    "code": "XV40",
+    "type": "Sedan",
+    "year": "2006-2012"
+  },
+  {
+    "id": 25,
+    "brand": "Lexus",
+    "model": "ES",
+    "code": "XV60",
+    "type": "Sedan",
+    "year": "2012-2018"
+  },
+  {
+    "id": 26,
+    "brand": "Lexus",
+    "model": "ES",
+    "code": "XV70",
+    "type": "Sedan",
+    "year": "2018-Present"
+  },
+  {
+    "id": 27,
+    "brand": "Lexus",
+    "model": "RX",
+    "code": "AL10",
+    "type": "SUV",
+    "year": "2009-2015"
+  },
+  {
+    "id": 28,
+    "brand": "Lexus",
+    "model": "RX",
+    "code": "AL20",
+    "type": "SUV",
+    "year": "2015-2022"
+  },
+  {
+    "id": 29,
+    "brand": "Lexus",
+    "model": "RX",
+    "code": "AL30",
+    "type": "SUV",
+    "year": "2022-Present"
+  },
+  {
+    "id": 30,
+    "brand": "Lexus",
+    "model": "LX",
+    "code": "J200",
+    "type": "SUV",
+    "year": "2007-2021"
+  },
+  {
+    "id": 31,
+    "brand": "Lexus",
+    "model": "LX",
+    "code": "J300",
+    "type": "SUV",
+    "year": "2021-Present"
+  }
+]
